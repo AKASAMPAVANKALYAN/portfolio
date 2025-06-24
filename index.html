@@ -1,83 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pavankalyan Akasam | QA Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
       line-height: 1.6;
-    }
-    header {
-      background-color: #1f1f1f;
       padding: 2rem;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
     .profile-pic {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      border: 4px solid #333;
+      border: 4px solid #4fc3f7;
       object-fit: cover;
       margin-bottom: 1rem;
+      box-shadow: 0 0 20px rgba(79, 195, 247, 0.6);
+      transition: transform 0.4s ease;
     }
+
+    .profile-pic:hover {
+      transform: rotateY(10deg) scale(1.05);
+    }
+
     h1 {
+      font-family: 'Orbitron', sans-serif;
       font-size: 2.5rem;
-      font-weight: 700;
+      color: #4fc3f7;
     }
-    p.subtitle {
-      font-size: 1.1rem;
-      color: #bbb;
-      margin: 0.5rem 0;
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin: 0.5rem 0 1rem;
     }
+
     nav a {
-      color: #90caf9;
+      color: #ffeb3b;
+      margin: 0 12px;
       text-decoration: none;
-      margin: 0 10px;
+      font-weight: 500;
     }
+
     section {
       max-width: 900px;
       margin: 2rem auto;
-      background: #1e1e1e;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
       padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(255,255,255,0.05);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease;
     }
+
+    section:hover {
+      transform: translateY(-4px);
+    }
+
     h2 {
-      color: #ffffff;
-      border-bottom: 2px solid #333;
+      font-size: 1.5rem;
+      color: #ffd54f;
       margin-bottom: 1rem;
+      border-bottom: 2px solid #444;
       padding-bottom: 0.5rem;
     }
+
     ul {
-      margin-top: 1rem;
+      list-style: disc;
       padding-left: 1.5rem;
     }
+
     ul li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
+
     footer {
       text-align: center;
-      padding: 1rem;
-      background-color: #1f1f1f;
-      color: #999;
-      margin-top: 2rem;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 3rem;
+      border-top: 1px solid #333;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="profile.jpg" alt="Pavankalyan Akasam" class="profile-pic">
+    <img src="profile.jpg" alt="Pavankalyan Akasam" class="profile-pic" />
     <h1>Pavankalyan Akasam</h1>
     <p class="subtitle">Entry-Level Automation Test Engineer</p>
     <nav>
@@ -110,28 +131,27 @@
     <h3>AutomationExercise E-Commerce Testing</h3>
     <ul>
       <li>Tools: Java, Selenium, TestNG, Maven, POM</li>
-      <li>Automated core workflows: signup, login, product search, cart and checkout</li>
+      <li>Automated workflows: signup, login, product search, cart and checkout</li>
       <li>Built scalable POM-based framework with WebDriverManager</li>
-      <li>Implemented screenshot capture on failure using TestNG listeners</li>
+      <li>Screenshot capture on failure using TestNG listeners</li>
       <li>Used ExtentReports for professional reporting</li>
     </ul>
 
-    <h3>OBSERVR_POM</h3>
+    <h3>OBSERVR_POM (May 2025 – May 2025)</h3>
     <ul>
-      <li>Duration: May 2025 – May 2025</li>
-      <li>Tools & Technologies: Selenium WebDriver, TestNG, Page Object Model (POM), Apache POI, Extent Reports, Java, Maven</li>
-      <li>Automated the end-to-end UI testing of obzervr.com using a modular Selenium framework.</li>
-      <li>Implemented POM design, data-driven testing from Excel, and screenshot capture on test failures.</li>
-      <li>Generated dynamic Extent Reports with logs and failure evidence.</li>
+      <li>Tools & Technologies: Selenium WebDriver, TestNG, POM, Apache POI, Extent Reports, Java, Maven</li>
+      <li>Automated UI testing of obzervr.com using a structured Selenium framework</li>
+      <li>Used Excel-based data-driven testing and TestNG Listeners for screenshots</li>
+      <li>Generated Extent Reports with logs, screenshots, and environment info</li>
     </ul>
   </section>
 
   <section>
     <h2>Education</h2>
     <ul>
-      <li><strong>Bachelor of Technology</strong> | Major: Computer Science and Engineering, GPA: 7.9<br>Sep. 2020 - May. 2024<br>Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology, Chennai, India</li>
-      <li><strong>Secondary Education (Intermediate)</strong> | Major: MPC, GPA: 8.46<br>June. 2018 - Mar. 2020<br>Narayana Junior College, Andhra Pradesh, India</li>
-      <li><strong>Secondary School Certificate (SSC)</strong>, GPA: 8.5<br>June. 2017 - Mar. 2018<br>Holy Angels E M High School, Andhra Pradesh, India</li>
+      <li><strong>Bachelor of Technology</strong> | CSE, GPA: 7.9<br>Sep. 2020 - May. 2024<br>Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology, Chennai, India</li>
+      <li><strong>Intermediate</strong> | MPC, GPA: 8.46<br>June. 2018 - Mar. 2020<br>Narayana Junior College, Andhra Pradesh, India</li>
+      <li><strong>SSC</strong>, GPA: 8.5<br>June. 2017 - Mar. 2018<br>Holy Angels E M High School, Andhra Pradesh, India</li>
     </ul>
   </section>
 
@@ -145,7 +165,7 @@
   </section>
 
   <footer>
-    &copy; 2025 Pavankalyan Akasam | Portfolio Website
+    &copy; 2025 Pavankalyan Akasam | Designed with 💻 + ☕
   </footer>
 </body>
 </html>
