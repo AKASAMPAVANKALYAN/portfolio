@@ -14,25 +14,23 @@
       padding-top: 100px;
     }
 
-    /* Floating Navbar */
-    <nav>
-  <a href="#profile">Profile</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#education">Education</a>
-  <a href="#strengths">Strengths</a>
-  <a href="#contact">Contact</a>
-  <a href="pavan test engineer.pdf" download>📄 Resume</a>
-</nav>
-
-    nav a, nav span {
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #1e3a5f;
+      padding: 10px 0;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+    }
+    nav a {
       color: #c3e8ff;
       margin: 0 12px;
       text-decoration: none;
       font-weight: 500;
       font-size: 1rem;
     }
-    
     nav a:hover {
       text-decoration: underline;
       color: #ffffff;
@@ -61,7 +59,17 @@
     .subtitle {
       font-size: 1.2rem;
       color: #ccc;
-      margin: 0.5rem 0 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .contact-info {
+      margin-top: 1rem;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+    .contact-info a {
+      color: #4fc3f7;
+      text-decoration: none;
     }
 
     .download-btn {
@@ -71,7 +79,7 @@
       padding: 10px 20px;
       border-radius: 25px;
       font-weight: bold;
-      margin-top: 1rem;
+      margin-top: 1.2rem;
       text-decoration: none;
       transition: background 0.3s;
     }
@@ -96,7 +104,6 @@
       padding-bottom: 0.5rem;
     }
 
-    /* Skills section as boxes */
     .skills-grid {
       display: flex;
       flex-wrap: wrap;
@@ -118,7 +125,6 @@
       color: #000;
     }
 
-    /* Projects */
     .project-card {
       background-color: #1a1a1a;
       border-radius: 12px;
@@ -168,7 +174,7 @@
 </head>
 <body>
 
-  <!-- Floating Nav -->
+  <!-- Navigation -->
   <nav>
     <a href="#profile">Profile</a>
     <a href="#skills">Skills</a>
@@ -178,18 +184,29 @@
     <a href="pavan test engineer.pdf" download>📄 Resume</a>
   </nav>
 
+  <!-- Header/Profile -->
   <header id="profile">
     <img src="profile.jpg" alt="Pavankalyan Akasam" class="profile-pic" />
     <h1>Pavankalyan Akasam</h1>
     <p class="subtitle">Entry-Level Automation Test Engineer</p>
+
+    <div class="contact-info">
+      📧 <a href="mailto:apavanpkalyan@gmail.com">apavanpkalyan@gmail.com</a><br>
+      📞 <span>+91 8341653388</span><br>
+      🔗 <a href="https://www.linkedin.com/in/pavankalyan-akasamm-1a5668216" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/AKASAMPAVANKALYAN" target="_blank">GitHub</a>
+    </div>
+
     <a href="pavan test engineer.pdf" class="download-btn" download>📥 Download Resume</a>
   </header>
 
+  <!-- Summary -->
   <section>
     <h2>Profile Summary</h2>
     <p>Detail-oriented Automation Tester with experience in automating web applications using Java, Selenium WebDriver, TestNG, and POM. Proficient in building reusable frameworks and executing test suites. Passionate about learning and delivering quality software.</p>
   </section>
 
+  <!-- Skills -->
   <section id="skills">
     <h2>Skills</h2>
     <div class="skills-grid">
@@ -213,6 +230,7 @@
     </div>
   </section>
 
+  <!-- Projects -->
   <section id="projects">
     <h2>Projects</h2>
 
@@ -235,7 +253,6 @@
       <span class="project-title">OBSERVR_POM</span>
       <div class="project-details" id="project2">
         <ul>
-         
           <li>Tools: Selenium WebDriver, TestNG, Apache POI, Extent Reports, Java, Maven</li>
           <li>Automated UI testing of obzervr.com using a structured framework</li>
           <li>Used Excel-based data-driven testing and TestNG Listeners for screenshots</li>
@@ -245,6 +262,7 @@
     </div>
   </section>
 
+  <!-- Education -->
   <section id="education">
     <h2>Education</h2>
     <ul>
@@ -253,21 +271,23 @@
       <li><strong>SSC</strong> | GPA: 8.5<br>Holy Angels EM High School, AP (2017–2018)</li>
     </ul>
   </section>
-  
-<section id="contact">
-  <h2>Contact</h2>
-  <ul>
-    <li><strong>Email:</strong> <a href="mailto:apavanpkalyan@gmail.com" style="color:#4fc3f7;">apavanpkalyan@gmail.com</a></li>
-    <li><strong>Phone:</strong> <span style="color:#ddd;">+91 8341653388</span></li>
-    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pavankalyan-akasamm-1a5668216" target="_blank" style="color:#4fc3f7;">linkedin.com/in/pavankalyan-akasamm</a></li>
-    <li><strong>GitHub:</strong> <a href="https://github.com/AKASAMPAVANKALYAN" target="_blank" style="color:#4fc3f7;">github.com/AKASAMPAVANKALYAN</a></li>
-  </ul>
-</section>
-  
+
+  <!-- Strengths -->
+  <section id="strengths">
+    <h2>Strengths</h2>
+    <ul>
+      <li>Quick Learner & Detail-Oriented</li>
+      <li>Strong Debugging and Analytical Skills</li>
+      <li>Excellent Communication & Teamwork</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
   <footer>
     &copy; 2025 Pavankalyan Akasam | Portfolio
   </footer>
 
+  <!-- Toggle Projects Script -->
   <script>
     function toggleProject(id) {
       const allDetails = document.querySelectorAll('.project-details');
@@ -276,5 +296,6 @@
       });
     }
   </script>
+
 </body>
 </html>
