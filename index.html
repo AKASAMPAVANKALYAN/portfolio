@@ -11,15 +11,12 @@
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
-      line-height: 1.6;
       padding: 2rem;
     }
-
     header {
       text-align: center;
       margin-bottom: 2rem;
     }
-
     .profile-pic {
       width: 160px;
       height: 160px;
@@ -30,23 +27,17 @@
       box-shadow: 0 0 20px rgba(79, 195, 247, 0.6);
       transition: transform 0.4s ease;
     }
-
-    .profile-pic:hover {
-      transform: rotateY(10deg) scale(1.05);
-    }
-
+    .profile-pic:hover { transform: rotateY(10deg) scale(1.05); }
     h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 2.5rem;
       color: #4fc3f7;
     }
-
     .subtitle {
       font-size: 1.2rem;
       color: #ccc;
       margin: 0.5rem 0 1rem;
     }
-
     nav a {
       color: #ffeb3b;
       margin: 0 12px;
@@ -61,12 +52,6 @@
       border-radius: 12px;
       padding: 2rem;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(8px);
-      transition: transform 0.3s ease;
-    }
-
-    section:hover {
-      transform: translateY(-4px);
     }
 
     h2 {
@@ -77,13 +62,45 @@
       padding-bottom: 0.5rem;
     }
 
-    ul {
-      list-style: disc;
-      padding-left: 1.5rem;
+    ul { padding-left: 1.5rem; }
+    ul li { margin-bottom: 0.75rem; }
+
+    /* Projects Section */
+    .project-card {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .project-card:hover {
+      background-color: #292929;
+    }
+    .project-image {
+      width: 100px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #4fc3f7;
+      display: inline-block;
+      margin-left: 1rem;
+      vertical-align: middle;
+    }
+    .project-details {
+      display: none;
+      margin-top: 1rem;
+      animation: fadeIn 0.5s ease-in-out;
     }
 
-    ul li {
-      margin-bottom: 0.75rem;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     footer {
@@ -97,6 +114,7 @@
   </style>
 </head>
 <body>
+
   <header>
     <img src="profile.jpg" alt="Pavankalyan Akasam" class="profile-pic" />
     <h1>Pavankalyan Akasam</h1>
@@ -128,22 +146,34 @@
 
   <section>
     <h2>Projects</h2>
-    <h3>AutomationExercise E-Commerce Testing</h3>
-    <ul>
-      <li>Tools: Java, Selenium, TestNG, Maven, POM</li>
-      <li>Automated workflows: signup, login, product search, cart and checkout</li>
-      <li>Built scalable POM-based framework with WebDriverManager</li>
-      <li>Screenshot capture on failure using TestNG listeners</li>
-      <li>Used ExtentReports for professional reporting</li>
-    </ul>
 
-    <h3>OBSERVR_POM (May 2025 – May 2025)</h3>
-    <ul>
-      <li>Tools & Technologies: Selenium WebDriver, TestNG, POM, Apache POI, Extent Reports, Java, Maven</li>
-      <li>Automated UI testing of obzervr.com using a structured Selenium framework</li>
-      <li>Used Excel-based data-driven testing and TestNG Listeners for screenshots</li>
-      <li>Generated Extent Reports with logs, screenshots, and environment info</li>
-    </ul>
+    <div class="project-card" onclick="toggleProject('project1')">
+      <img src="automation_exercise_logo.jpg" class="project-image" alt="AutomationExercise Logo">
+      <span class="project-title">AutomationExercise E-Commerce</span>
+      <div class="project-details" id="project1">
+        <ul>
+          <li>Tools: Java, Selenium, TestNG, Maven, POM</li>
+          <li>Automated workflows: signup, login, product search, cart and checkout</li>
+          <li>Built scalable POM-based framework with WebDriverManager</li>
+          <li>Screenshot capture on failure using TestNG listeners</li>
+          <li>Used ExtentReports for professional reporting</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="project-card" onclick="toggleProject('project2')">
+      <img src="obzervr_logo.jpg" class="project-image" alt="Obzervr Logo">
+      <span class="project-title">OBSERVR_POM</span>
+      <div class="project-details" id="project2">
+        <ul>
+          <li>Duration: May 2025 – May 2025</li>
+          <li>Tools & Technologies: Selenium WebDriver, TestNG, POM, Apache POI, Extent Reports, Java, Maven</li>
+          <li>Automated UI testing of obzervr.com using a structured Selenium framework</li>
+          <li>Used Excel-based data-driven testing and TestNG Listeners for screenshots</li>
+          <li>Generated Extent Reports with logs, screenshots, and environment info</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section>
@@ -167,5 +197,18 @@
   <footer>
     &copy; 2025 Pavankalyan Akasam | Designed with 💻 + ☕
   </footer>
+
+  <script>
+    function toggleProject(id) {
+      const allDetails = document.querySelectorAll('.project-details');
+      allDetails.forEach(detail => {
+        if (detail.id === id) {
+          detail.style.display = detail.style.display === 'block' ? 'none' : 'block';
+        } else {
+          detail.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
