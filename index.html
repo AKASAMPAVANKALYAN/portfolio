@@ -11,8 +11,31 @@
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
-      padding: 2rem;
+      padding-top: 100px;
     }
+
+    /* Floating Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.9);
+      padding: 10px 0;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+    }
+    nav a, nav span {
+      color: #ffeb3b;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     header {
       text-align: center;
       margin-bottom: 2rem;
@@ -23,7 +46,7 @@
       border-radius: 50%;
       border: 4px solid #4fc3f7;
       object-fit: cover;
-      margin-bottom: 1rem;
+      margin-top: 1rem;
       box-shadow: 0 0 20px rgba(79, 195, 247, 0.6);
       transition: transform 0.4s ease;
     }
@@ -38,11 +61,20 @@
       color: #ccc;
       margin: 0.5rem 0 1rem;
     }
-    nav a {
-      color: #ffeb3b;
-      margin: 0 12px;
+
+    .download-btn {
+      display: inline-block;
+      background-color: #4fc3f7;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      margin-top: 1rem;
       text-decoration: none;
-      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .download-btn:hover {
+      background-color: #00bcd4;
     }
 
     section {
@@ -62,10 +94,29 @@
       padding-bottom: 0.5rem;
     }
 
-    ul { padding-left: 1.5rem; }
-    ul li { margin-bottom: 0.75rem; }
+    /* Skills section as boxes */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 1rem;
+    }
+    .skill-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 20px;
+      border: 1px solid #4fc3f7;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+    .skill-box:hover {
+      background-color: #4fc3f7;
+      color: #000;
+    }
 
-    /* Projects Section */
+    /* Projects */
     .project-card {
       background-color: #1a1a1a;
       border-radius: 12px;
@@ -75,9 +126,7 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-    .project-card:hover {
-      background-color: #292929;
-    }
+    .project-card:hover { background-color: #292929; }
     .project-image {
       width: 100px;
       height: auto;
@@ -97,11 +146,13 @@
       margin-top: 1rem;
       animation: fadeIn 0.5s ease-in-out;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    ul { padding-left: 1.5rem; }
+    ul li { margin-bottom: 0.75rem; }
 
     footer {
       text-align: center;
@@ -115,16 +166,21 @@
 </head>
 <body>
 
-  <header>
+  <!-- Floating Nav -->
+  <nav>
+    <a href="#profile">Profile</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#strengths">Strengths</a>
+    <a href="pavan test engineer.pdf" download>📄 Resume</a>
+  </nav>
+
+  <header id="profile">
     <img src="profile.jpg" alt="Pavankalyan Akasam" class="profile-pic" />
     <h1>Pavankalyan Akasam</h1>
     <p class="subtitle">Entry-Level Automation Test Engineer</p>
-    <nav>
-      <a href="https://www.linkedin.com/in/pavankalyan-akasamm-1a5668216">LinkedIn</a>
-      <a href="https://github.com/AKASAMPAVANKALYAN">GitHub</a>
-      <a href="mailto:apavanpkalyan@gmail.com">Email</a>
-      <span>📞 8341653388</span>
-    </nav>
+    <a href="pavan test engineer.pdf" class="download-btn" download>📥 Download Resume</a>
   </header>
 
   <section>
@@ -132,19 +188,30 @@
     <p>Detail-oriented Automation Tester with experience in automating web applications using Java, Selenium WebDriver, TestNG, and POM. Proficient in building reusable frameworks and executing test suites. Passionate about learning and delivering quality software.</p>
   </section>
 
-  <section>
+  <section id="skills">
     <h2>Skills</h2>
-    <ul>
-      <li><strong>Testing Skills:</strong> Manual Testing, SDLC/STLC, Functional Testing, Regression Testing, Smoke Testing, Test Case Design, Defect Reporting, Test Automation, Bug Life Cycle</li>
-      <li><strong>Tools:</strong> JIRA, Selenium WebDriver, Eclipse</li>
-      <li><strong>Programming:</strong> Core Java</li>
-      <li><strong>Database:</strong> SQL</li>
-      <li><strong>Frameworks:</strong> TestNG, POM</li>
-      <li><strong>CI/CD Tool:</strong> GitHub</li>
-    </ul>
+    <div class="skills-grid">
+      <div class="skill-box">Manual Testing</div>
+      <div class="skill-box">SDLC/STLC</div>
+      <div class="skill-box">Functional Testing</div>
+      <div class="skill-box">Regression Testing</div>
+      <div class="skill-box">Smoke Testing</div>
+      <div class="skill-box">Test Case Design</div>
+      <div class="skill-box">Defect Reporting</div>
+      <div class="skill-box">Bug Life Cycle</div>
+      <div class="skill-box">Test Automation</div>
+      <div class="skill-box">Selenium WebDriver</div>
+      <div class="skill-box">JIRA</div>
+      <div class="skill-box">Eclipse</div>
+      <div class="skill-box">Core Java</div>
+      <div class="skill-box">SQL</div>
+      <div class="skill-box">TestNG</div>
+      <div class="skill-box">POM</div>
+      <div class="skill-box">GitHub</div>
+    </div>
   </section>
 
-  <section>
+  <section id="projects">
     <h2>Projects</h2>
 
     <div class="project-card" onclick="toggleProject('project1')">
@@ -165,9 +232,10 @@
       <img src="obzervr_logo.jpg" class="project-image" alt="Obzervr Logo">
       <span class="project-title">OBSERVR_POM</span>
       <div class="project-details" id="project2">
-        <ul> 
-          <li>Tools & Technologies: Selenium WebDriver, TestNG, POM, Apache POI, Extent Reports, Java, Maven</li>
-          <li>Automated UI testing of obzervr.com using a structured Selenium framework</li>
+        <ul>
+          <li>Duration: May 2025 – May 2025</li>
+          <li>Tools: Selenium WebDriver, TestNG, Apache POI, Extent Reports, Java, Maven</li>
+          <li>Automated UI testing of obzervr.com using a structured framework</li>
           <li>Used Excel-based data-driven testing and TestNG Listeners for screenshots</li>
           <li>Generated Extent Reports with logs, screenshots, and environment info</li>
         </ul>
@@ -175,16 +243,16 @@
     </div>
   </section>
 
-  <section>
+  <section id="education">
     <h2>Education</h2>
     <ul>
-      <li><strong>Bachelor of Technology</strong> | CSE, GPA: 7.9<br>Sep. 2020 - May. 2024<br>Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology, Chennai, India</li>
-      <li><strong>Intermediate</strong> | MPC, GPA: 8.46<br>June. 2018 - Mar. 2020<br>Narayana Junior College, Andhra Pradesh, India</li>
-      <li><strong>SSC</strong>, GPA: 8.5<br>June. 2017 - Mar. 2018<br>Holy Angels E M High School, Andhra Pradesh, India</li>
+      <li><strong>B.Tech - CSE</strong> | GPA: 7.9<br>Vel Tech University, Chennai (2020–2024)</li>
+      <li><strong>Intermediate - MPC</strong> | GPA: 8.46<br>Narayana Junior College, AP (2018–2020)</li>
+      <li><strong>SSC</strong> | GPA: 8.5<br>Holy Angels EM High School, AP (2017–2018)</li>
     </ul>
   </section>
 
-  <section>
+  <section id="strengths">
     <h2>Strengths</h2>
     <ul>
       <li>Quick Learner & Detail-Oriented</li>
@@ -201,11 +269,7 @@
     function toggleProject(id) {
       const allDetails = document.querySelectorAll('.project-details');
       allDetails.forEach(detail => {
-        if (detail.id === id) {
-          detail.style.display = detail.style.display === 'block' ? 'none' : 'block';
-        } else {
-          detail.style.display = 'none';
-        }
+        detail.style.display = (detail.id === id && detail.style.display !== 'block') ? 'block' : 'none';
       });
     }
   </script>
