@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
   <style>
+    /* Reset & global styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html, body {
       width: 100%;
       height: 100%;
@@ -64,7 +64,6 @@
       border-radius: 50%;
       border: 4px solid #4fc3f7;
       object-fit: cover;
-      margin-top: 1rem;
       box-shadow: 0 0 20px rgba(79, 195, 247, 0.6);
       transition: transform 0.4s ease;
     }
@@ -132,103 +131,110 @@
       border-bottom: 2px solid #444;
       padding-bottom: 0.5rem;
     }
-
-    .card {
-      background-color: #ffffff10;
-      border-radius: 10px;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: scale(1.03);
-    }
-
-    .card h3 {
-      color: #4fc3f7;
-      margin-bottom: 0.3rem;
-    }
-
-    .card p, .card li {
-      color: #ccc;
-    }
-
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .skill-box {
-      background-color: rgba(255, 255, 255, 0.05);
-      color: #fff;
-      padding: 10px 16px;
-      border-radius: 20px;
-      border: 1px solid #4fc3f7;
-      font-size: 0.95rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.3s ease;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.9rem;
-      color: #aaa;
-      margin-top: 3rem;
-      border-top: 1px solid #333;
-    }
   </style>
 </head>
+
 <body>
+  <!-- 3D Background Canvas -->
+  <canvas id="bg3d"></canvas>
 
-<!-- 3D Canvas -->
-<canvas id="bg3d"></canvas>
+  <!-- Navigation -->
+  <nav>
+    <a href="#profile">Profile</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#strengths">Strengths</a>
+  </nav>
 
-<!-- Navigation -->
-<nav>
-  <a href="#profile">Profile</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#education">Education</a>
-  <a href="#strengths">Strengths</a>
-</nav>
-
-<!-- Header -->
-<header id="profile">
-  <img src="profile.jpg" alt="Pavankalyan Akasam" class="profile-pic" />
-  <h1>Pavankalyan Akasam</h1>
-  <p class="subtitle">Entry-Level QA Engineer</p>
-  <div class="contact-info">
-    📧 <a href="mailto:apavanpkalyan@gmail.com">apavanpkalyan@gmail.com</a> |
-    📞 +91 8341653388 |
-    🔗 <a href="https://www.linkedin.com/in/pavankalyan-akasamm-1a5668216">LinkedIn</a> |
-    <a href="https://github.com/AKASAMPAVANKALYAN">GitHub</a>
-  </div>
-  <a href="pavan test engineer.pdf" class="download-btn" download>📥 Download Resume</a>
-</header>
-
-<!-- Example Section (add yours similarly) -->
+  <!-- Profile Header -->
+  <header id="profile" data-aos="fade-down">
+    <img src="profile.jpg" alt="Pavankalyan Akasam" class="profile-pic" />
+    <h1>Pavankalyan Akasam</h1>
+    <p class="subtitle">Entry-Level QA Engineer</p>
+    <div class="contact-info">
+      📧 <a href="mailto:apavanpkalyan@gmail.com">apavanpkalyan@gmail.com</a> |
+      📞 +91 8341653388 |
+      🔗 <a href="https://www.linkedin.com/in/pavankalyan-akasamm-1a5668216">LinkedIn</a> |
+      <a href="https://github.com/AKASAMPAVANKALYAN">GitHub</a>
+    </div>
+    <a href="pavan test engineer.pdf" class="download-btn" download>📥 Download Resume</a>
+  </header>
+<!-- Skills Section -->
 <section id="skills" data-aos="fade-up">
   <h2>Skills</h2>
   <div class="skills-grid">
-    <div class="skill-box">Manual Testing</div>
-    <div class="skill-box">Automation (Selenium, TestNG)</div>
-    <div class="skill-box">Core Java</div>
-    <div class="skill-box">SQL</div>
-    <div class="skill-box">JIRA</div>
-    <div class="skill-box">GitHub</div>
-    <div class="skill-box">POM Framework</div>
+    <div class="skill-box" data-tilt>Manual Testing</div>
+    <div class="skill-box" data-tilt>SDLC/STLC</div>
+    <div class="skill-box" data-tilt>Functional Testing</div>
+    <div class="skill-box" data-tilt>Regression Testing</div>
+    <div class="skill-box" data-tilt>Smoke Testing</div>
+    <div class="skill-box" data-tilt>Selenium WebDriver</div>
+    <div class="skill-box" data-tilt>TestNG</div>
+    <div class="skill-box" data-tilt>Page Object Model (POM)</div>
+    <div class="skill-box" data-tilt>Extent Reports</div>
+    <div class="skill-box" data-tilt>Apache POI</div>
+    <div class="skill-box" data-tilt>Core Java</div>
+    <div class="skill-box" data-tilt>SQL</div>
+    <div class="skill-box" data-tilt>JIRA</div>
+    <div class="skill-box" data-tilt>GitHub</div>
   </div>
 </section>
 
-<!-- Add your other sections like Projects, Education, Strengths... -->
+<!-- Projects Section -->
+<section id="projects" data-aos="fade-up">
+  <h2>Projects</h2>
 
+  <div class="card" data-tilt>
+    <h3>AutomationExercise E-Commerce</h3>
+    <p>Built a modular automation framework to test user workflows like signup, login, and checkout using Java, Selenium, and TestNG.</p>
+    <ul>
+      <li>Tools: Java, Selenium, TestNG, Maven</li>
+      <li>Framework: POM, WebDriverManager</li>
+      <li>Features: ExtentReports, Screenshot on Failure</li>
+    </ul>
+  </div>
+
+  <div class="card" data-tilt>
+    <h3>OBSERVR_POM</h3>
+    <p>Automated the UI testing of Obzervr’s platform using Selenium and TestNG with Excel-driven inputs and dynamic Extent Reports.</p>
+    <ul>
+      <li>Tools: Selenium, Java, Apache POI, ExtentReports</li>
+      <li>Data-driven with Excel sheets</li>
+      <li>Screenshot capturing using TestNG Listeners</li>
+    </ul>
+  </div>
+</section>
+<!-- Education Section -->
+<section id="education" data-aos="fade-up">
+  <h2>Education</h2>
+
+  <div class="card" data-tilt>
+    <h3>B.Tech – CSE</h3>
+    <p>Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology, Chennai</p>
+    <p><strong>GPA:</strong> 7.9 (2020–2024)</p>
+  </div>
+
+  <div class="card" data-tilt>
+    <h3>Intermediate – MPC</h3>
+    <p>Narayana Junior College, Andhra Pradesh</p>
+    <p><strong>GPA:</strong> 8.46 (2018–2020)</p>
+  </div>
+
+  
+</section>
+
+<!-- Strengths Section -->
+<section id="strengths" data-aos="fade-up">
+  <h2>Strengths</h2>
+  <ul>
+    <li>Quick Learner & Detail-Oriented</li>
+    <li>Strong Debugging and Analytical Skills</li>
+    <li>Excellent Communication & Teamwork</li>
+  </ul>
+</section>
+
+<!-- Footer -->
 <footer>
   &copy; 2025 Pavankalyan Akasam | 3D Portfolio
 </footer>
