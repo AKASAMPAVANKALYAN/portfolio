@@ -15,6 +15,41 @@
       color: #fff;
       overflow-x: hidden;
     }
+
+    .card {
+  display: flex;
+  gap: 1.5rem;
+  background-color: #ffffff10;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  flex-wrap: wrap;
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.card-content {
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .card img {
+    margin-bottom: 1rem;
+  }
+}
+
     canvas#bg3d {
       position: fixed;
       top: 0;
@@ -180,49 +215,61 @@
   </div>
 </section>
 
-<section id="projects" data-aos="fade-up">
+
+ <section id="projects" data-aos="fade-up">
   <h2>Projects</h2>
 
   <div class="card" data-tilt>
-    <img src="automation_exercise_logo.jpg" alt="Automation Exercise" style="width:100px; float:left; margin-right:1rem;" />
-    <h3>AutomationExercise E-Commerce</h3>
-    <p>Automated signup, login, search, cart, and checkout using Java + Selenium.</p>
-    <ul>
-      <li>Tools: Java, Selenium, TestNG, Maven</li>
-      <li>POM architecture, screenshot capture</li>
-    </ul>
+    <img src="automation_exercise_logo.jpg" alt="Automation Exercise" />
+    <div class="card-content">
+      <h3>AutomationExercise E-Commerce</h3>
+      <p>Automated signup, login, search, cart, and checkout using Java + Selenium.</p>
+      <ul>
+        <li>Tools: Java, Selenium, TestNG, Maven</li>
+        <li>POM architecture, screenshot capture</li>
+      </ul>
+    </div>
   </div>
 
   <div class="card" data-tilt>
-    <img src="obzervr_logo.jpg" alt="Obzervr Logo" style="width:100px; float:left; margin-right:1rem;" />
-    <h3>OBSERVR_POM</h3>
-    <p>End-to-end automation for Obzervr.com using Selenium, POI, TestNG.</p>
-    <ul>
-      <li>Data-driven with Excel</li>
-      <li>Listeners + screenshot on failure</li>
-    </ul>
+    <img src="obzervr_logo.jpg" alt="Obzervr Logo" />
+    <div class="card-content">
+      <h3>OBSERVR_POM</h3>
+      <p>End-to-end automation for Obzervr.com using Selenium, POI, TestNG.</p>
+      <ul>
+        <li>Data-driven with Excel</li>
+        <li>Listeners + screenshot on failure</li>
+      </ul>
+    </div>
   </div>
 </section>
+
 
 
 <section id="education" data-aos="fade-up">
   <h2>Education</h2>
 
   <div class="card" data-tilt>
-    <img src="veltech.jpg" alt="Vel Tech" style="width:100px; float:left; margin-right:1rem;" />
-    <h3>B.Tech – CSE</h3>
-    <p>Vel Tech University, Chennai</p>
-    <p><strong>GPA:</strong> 7.9 (2020–2024)</p>
+    <img src="veltech.jpg" alt="Vel Tech University" />
+    <div class="card-content">
+      <h3>B.Tech – CSE</h3>
+      <p>Vel Tech University, Chennai</p>
+      <p><strong>GPA:</strong> 7.9 (2020–2024)</p>
+    </div>
   </div>
 
   <div class="card" data-tilt>
-    <img src="narayana.jpg" alt="Narayana" style="width:100px; float:left; margin-right:1rem;" />
-    <h3>Intermediate – MPC</h3>
-    <p>Narayana Junior College</p>
-    <p><strong>GPA:</strong> 8.46 (2018–2020)</p>
+    <img src="narayana.jpg" alt="Narayana" />
+    <div class="card-content">
+      <h3>Intermediate – MPC</h3>
+      <p>Narayana Junior College</p>
+      <p><strong>GPA:</strong> 8.46 (2018–2020)</p>
+    </div>
   </div>
 
+ 
 </section>
+
 
 
 <section id="strengths" data-aos="fade-up">
