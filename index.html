@@ -259,7 +259,7 @@
     </div>
 </section>
 
-            <!-- Projects Section -->
+           
             <!-- Projects Section -->
 <section id="projects" class="py-20 scroll-animate">
     <div class="container mx-auto px-4">
@@ -314,7 +314,184 @@
         </div>
     </div>
 </section>
+<!-- Skills Section -->
+<section id="skills" class="py-20 scroll-animate">
+    <div class="container mx-auto px-4">
+        <div class="glass-card p-8 md:p-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Skills</h2>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <!-- Manual Testing -->
+                <div class="skill-box" data-tilt>
+                    <div class="skill-content">
+                        <i class="fas fa-hand-paper text-2xl mb-2"></i>
+                        <span>Manual Testing</span>
+                    </div>
+                </div>
+                
+                <!-- SDLC/STLC -->
+                <div class="skill-box" data-tilt>
+                    <div class="skill-content">
+                        <i class="fas fa-project-diagram text-2xl mb-2"></i>
+                        <span>SDLC/STLC</span>
+                    </div>
+                </div>
+                
+                <!-- Functional Testing -->
+                <div class="skill-box" data-tilt>
+                    <div class="skill-content">
+                        <i class="fas fa-check-circle text-2xl mb-2"></i>
+                        <span>Functional Testing</span>
+                    </div>
+                </div>
+                
+                <!-- Regression Testing -->
+                <div class="skill-box" data-tilt>
+                    <div class="skill-content">
+                        <i class="fas fa-undo text-2xl mb-2"></i>
+                        <span>Regression Testing</span>
+                    </div>
+                </div>
+                
+                <!-- Smoke Testing -->
+                <div class="skill-box" data-tilt>
+                    <div class="skill-content">
+                        <i class="fas fa-smoking text-2xl mb-2"></i>
+                        <span>Smoke Testing</span>
+                    </div>
+                </div>
+                
+                <!-- Selenium WebDriver -->
+                <div class="skill-box" data-tilt>
+                    <div class="skill-content">
+                        <i class="fas fa-robot text-2xl mb-2"></i>
+                        <span>Selenium WebDriver</span>
+                    </div>
+                </div>
+                
+                <!-- TestNG -->
+                <div class="skill-box" data-tilt>
+                    <div class="skill-content">
+                        <i class="fas fa-vial text-2xl mb-2"></i>
+                        <span>TestNG</span>
+                    </div>
+                </div>
+                
+                <!-- POM -->
+                <div class="skill-box" data-tilt>
+                    <div class="skill-content">
+                        <i class="fas fa-layer-group text-2xl mb-2"></i>
+                        <span>POM</span>
+                    </div>
+                </div>
+                
+                <!-- ExtentReports -->
+                <div class="skill-box" data-tilt>
+                    <div class="skill-content">
+                        <i class="fas fa-chart-bar text-2xl mb-2"></i>
+                        <span>ExtentReports</span>
+                    </div>
+                </div>
+                
+                <!-- Apache POI -->
+                <div class="skill-box" data-tilt>
+                    <div class="skill-content">
+                        <i class="fas fa-file-excel text-2xl mb-2"></i>
+                        <span>Apache POI</span>
+                    </div>
+                </div>
+                
+                <!-- Core Java -->
+                <div class="skill-box" data-tilt>
+                    <div class="skill-content">
+                        <i class="fab fa-java text-2xl mb-2"></i>
+                        <span>Core Java</span>
+                    </div>
+                </div>
+                
+                <!-- SQL -->
+                <div class="skill-box" data-tilt>
+                    <div class="skill-content">
+                        <i class="fas fa-database text-2xl mb-2"></i>
+                        <span>SQL</span>
+                    </div>
+                </div>
+                
+                <!-- JIRA -->
+                <div class="skill-box" data-tilt>
+                    <div class="skill-content">
+                        <i class="fab fa-jira text-2xl mb-2"></i>
+                        <span>JIRA</span>
+                    </div>
+                </div>
+                
+                <!-- GitHub -->
+                <div class="skill-box" data-tilt>
+                    <div class="skill-content">
+                        <i class="fab fa-github text-2xl mb-2"></i>
+                        <span>GitHub</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<style>
+    .skill-box {
+        background: rgba(15, 15, 27, 0.6);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.75rem;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: default;
+        height: 100%;
+    }
+    
+    .skill-box:hover {
+        border-color: rgba(79, 70, 229, 0.5);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .skill-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+    
+    .skill-box i {
+        color: #8b5cf6;
+        margin-bottom: 0.5rem;
+    }
+    
+    .skill-box span {
+        color: #e5e5e5;
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+    
+    /* Tilt.js custom styles */
+    .tilt-glare {
+        border-radius: 0.75rem;
+    }
+</style>
+
+<script>
+    // Initialize tilt.js for skill boxes
+    $('.skill-box').tilt({
+        glare: true,
+        maxGlare: 0.1,
+        maxTilt: 5,
+        scale: 1.05,
+        speed: 500
+    });
+</script>
 <!-- Tilt.js Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
 <script>
