@@ -4,31 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pavankalyan Akasam | 3D QA Portfolio</title>
-
-  <!-- Fonts, Icons, Animations -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-
   <style>
-    /* Reset & global styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
-      width: 100%;
-      height: 100%;
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
       overflow-x: hidden;
     }
-
     canvas#bg3d {
       position: fixed;
       top: 0;
       left: 0;
       z-index: -1;
     }
-
     nav {
       position: fixed;
       top: 0;
@@ -39,25 +31,18 @@
       z-index: 1000;
       box-shadow: 0 4px 6px rgba(0,0,0,0.4);
     }
-
     nav a {
       color: #c3e8ff;
       margin: 0 15px;
       text-decoration: none;
       font-weight: 500;
-      font-size: 1rem;
     }
-
-    nav a:hover {
-      color: #ffffff;
-    }
-
+    nav a:hover { color: #fff; }
     header {
       text-align: center;
-      margin-top: 100px;
+      margin-top: 120px;
       margin-bottom: 2rem;
     }
-
     .profile-pic {
       width: 160px;
       height: 160px;
@@ -67,24 +52,20 @@
       box-shadow: 0 0 20px rgba(79, 195, 247, 0.6);
       transition: transform 0.4s ease;
     }
-
     .profile-pic:hover {
       transform: rotateY(10deg) scale(1.05);
     }
-
     h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 2.5rem;
       color: #4fc3f7;
       text-shadow: 0 0 12px #4fc3f7;
     }
-
     .subtitle {
       font-size: 1.2rem;
       color: #ccc;
       margin: 0.5rem 0;
     }
-
     .contact-info {
       margin-top: 1rem;
       font-size: 1rem;
@@ -93,12 +74,10 @@
       flex-wrap: wrap;
       gap: 12px;
     }
-
     .contact-info a {
       color: #4fc3f7;
       text-decoration: none;
     }
-
     .download-btn {
       display: inline-block;
       background-color: #4fc3f7;
@@ -108,13 +87,7 @@
       font-weight: bold;
       margin-top: 1.2rem;
       text-decoration: none;
-      transition: background 0.3s;
     }
-
-    .download-btn:hover {
-      background-color: #00bcd4;
-    }
-
     section {
       max-width: 900px;
       margin: 2rem auto;
@@ -123,7 +96,6 @@
       padding: 2rem;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
-
     h2 {
       font-size: 1.5rem;
       color: #4fc3f7;
@@ -131,36 +103,63 @@
       border-bottom: 2px solid #444;
       padding-bottom: 0.5rem;
     }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .skill-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 20px;
+      border: 1px solid #4fc3f7;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .card {
+      background-color: #ffffff10;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 3rem;
+      border-top: 1px solid #333;
+    }
   </style>
 </head>
-
 <body>
-  <!-- 3D Background Canvas -->
-  <canvas id="bg3d"></canvas>
+<canvas id="bg3d"></canvas>
+<nav>
+  <a href="#profile">Profile</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#education">Education</a>
+  <a href="#strengths">Strengths</a>
+</nav>
+<header id="profile">
+  <img src="profile.jpg" alt="Pavankalyan Akasam" class="profile-pic" />
+  <h1>Pavankalyan Akasam</h1>
+  <p class="subtitle">Entry-Level QA Engineer</p>
+  <div class="contact-info">
+    📧 <a href="mailto:apavanpkalyan@gmail.com">apavanpkalyan@gmail.com</a> |
+    📞 +91 8341653388 |
+    🔗 <a href="https://www.linkedin.com/in/pavankalyan-akasamm-1a5668216">LinkedIn</a> |
+    <a href="https://github.com/AKASAMPAVANKALYAN">GitHub</a>
+  </div>
+  <a href="pavan test engineer.pdf" class="download-btn" download>📥 Download Resume</a>
+</header>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="#profile">Profile</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#education">Education</a>
-    <a href="#strengths">Strengths</a>
-  </nav>
-
-  <!-- Profile Header -->
-  <header id="profile" data-aos="fade-down">
-    <img src="profile.jpg" alt="Pavankalyan Akasam" class="profile-pic" />
-    <h1>Pavankalyan Akasam</h1>
-    <p class="subtitle">Entry-Level QA Engineer</p>
-    <div class="contact-info">
-      📧 <a href="mailto:apavanpkalyan@gmail.com">apavanpkalyan@gmail.com</a> |
-      📞 +91 8341653388 |
-      🔗 <a href="https://www.linkedin.com/in/pavankalyan-akasamm-1a5668216">LinkedIn</a> |
-      <a href="https://github.com/AKASAMPAVANKALYAN">GitHub</a>
-    </div>
-    <a href="pavan test engineer.pdf" class="download-btn" download>📥 Download Resume</a>
-  </header>
-<!-- Skills Section -->
 <section id="skills" data-aos="fade-up">
   <h2>Skills</h2>
   <div class="skills-grid">
@@ -171,8 +170,8 @@
     <div class="skill-box" data-tilt>Smoke Testing</div>
     <div class="skill-box" data-tilt>Selenium WebDriver</div>
     <div class="skill-box" data-tilt>TestNG</div>
-    <div class="skill-box" data-tilt>Page Object Model (POM)</div>
-    <div class="skill-box" data-tilt>Extent Reports</div>
+    <div class="skill-box" data-tilt>POM</div>
+    <div class="skill-box" data-tilt>ExtentReports</div>
     <div class="skill-box" data-tilt>Apache POI</div>
     <div class="skill-box" data-tilt>Core Java</div>
     <div class="skill-box" data-tilt>SQL</div>
@@ -181,50 +180,42 @@
   </div>
 </section>
 
-<!-- Projects Section -->
 <section id="projects" data-aos="fade-up">
   <h2>Projects</h2>
-
   <div class="card" data-tilt>
     <h3>AutomationExercise E-Commerce</h3>
-    <p>Built a modular automation framework to test user workflows like signup, login, and checkout using Java, Selenium, and TestNG.</p>
+    <p>Automated signup, login, product search, cart and checkout workflows using Selenium and Java.</p>
     <ul>
       <li>Tools: Java, Selenium, TestNG, Maven</li>
-      <li>Framework: POM, WebDriverManager</li>
-      <li>Features: ExtentReports, Screenshot on Failure</li>
+      <li>POM architecture, ExtentReports, screenshot capture</li>
     </ul>
   </div>
-
   <div class="card" data-tilt>
     <h3>OBSERVR_POM</h3>
-    <p>Automated the UI testing of Obzervr’s platform using Selenium and TestNG with Excel-driven inputs and dynamic Extent Reports.</p>
+    <p>End-to-end automation for Obzervr.com with data-driven TestNG framework.</p>
     <ul>
-      <li>Tools: Selenium, Java, Apache POI, ExtentReports</li>
-      <li>Data-driven with Excel sheets</li>
-      <li>Screenshot capturing using TestNG Listeners</li>
+      <li>Tools: Selenium WebDriver, Apache POI, ExtentReports</li>
+      <li>Listeners for screenshot on failure</li>
     </ul>
   </div>
 </section>
-<!-- Education Section -->
+
 <section id="education" data-aos="fade-up">
   <h2>Education</h2>
-
   <div class="card" data-tilt>
     <h3>B.Tech – CSE</h3>
-    <p>Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology, Chennai</p>
-    <p><strong>GPA:</strong> 7.9 (2020–2024)</p>
+    <p>Vel Tech University | GPA: 7.9 (2020–2024)</p>
   </div>
-
   <div class="card" data-tilt>
     <h3>Intermediate – MPC</h3>
-    <p>Narayana Junior College, Andhra Pradesh</p>
-    <p><strong>GPA:</strong> 8.46 (2018–2020)</p>
+    <p>Narayana Junior College | GPA: 8.46 (2018–2020)</p>
   </div>
-
-  
+  <div class="card" data-tilt>
+    <h3>SSC</h3>
+    <p>Holy Angels EM High School | GPA: 8.5 (2017–2018)</p>
+  </div>
 </section>
 
-<!-- Strengths Section -->
 <section id="strengths" data-aos="fade-up">
   <h2>Strengths</h2>
   <ul>
@@ -234,19 +225,15 @@
   </ul>
 </section>
 
-<!-- Footer -->
 <footer>
   &copy; 2025 Pavankalyan Akasam | 3D Portfolio
 </footer>
 
-<!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
-
 <script>
   AOS.init();
-
   VanillaTilt.init(document.querySelectorAll(".card, .skill-box"), {
     max: 15,
     speed: 400,
@@ -257,15 +244,10 @@
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
   camera.position.z = 3;
-
   const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg3d'), alpha: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
-
-  const geometry = new THREE.BoxGeometry();
-  const material = new THREE.MeshStandardMaterial({ color: 0x4fc3f7 });
-  const cube = new THREE.Mesh(geometry, material);
+  const cube = new THREE.Mesh(new THREE.BoxGeometry(), new THREE.MeshStandardMaterial({ color: 0x4fc3f7 }));
   scene.add(cube);
-
   const light = new THREE.DirectionalLight(0xffffff, 1);
   light.position.set(2, 2, 5).normalize();
   scene.add(light);
@@ -276,7 +258,6 @@
     cube.rotation.y += 0.01;
     renderer.render(scene, camera);
   }
-
   animate();
 
   window.addEventListener('resize', () => {
@@ -285,6 +266,5 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
 </script>
-
 </body>
 </html>
