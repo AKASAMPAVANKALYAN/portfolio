@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pavankalyan Akasam | QA Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
+$1<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+$2
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
       padding-top: 100px;
     }
-
     nav {
       position: fixed;
       top: 0;
@@ -37,7 +30,6 @@
       text-decoration: underline;
       color: #ffffff;
     }
-
     header {
       text-align: center;
       margin-bottom: 2rem;
@@ -75,7 +67,6 @@
       color: #4fc3f7;
       text-decoration: none;
     }
-
     .download-btn {
       display: inline-block;
       background-color: #4fc3f7;
@@ -90,7 +81,6 @@
     .download-btn:hover {
       background-color: #00bcd4;
     }
-
     section {
       max-width: 900px;
       margin: 2rem auto;
@@ -99,7 +89,6 @@
       padding: 2rem;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
-
     h2 {
       font-size: 1.5rem;
       color: #4fc3f7;
@@ -107,48 +96,7 @@
       border-bottom: 2px solid #444;
       padding-bottom: 0.5rem;
     }
-
-    .skill-group {
-      margin-bottom: 2rem;
-    }
-    .skill-group h3 {
-      color: #4fc3f7;
-      font-size: 1.2rem;
-      margin-bottom: 0.8rem;
-    }
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .skill-box {
-      background-color: rgba(255, 255, 255, 0.05);
-      color: #fff;
-      padding: 10px 16px;
-      border-radius: 20px;
-      border: 1px solid #4fc3f7;
-      font-size: 0.95rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 0.6s ease forwards;
-      animation-delay: 0.1s;
-    }
-    .skill-box i {
-      color: #4fc3f7;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .card {
+    .project-card, .edu-card {
       display: flex;
       background-color: #ffffff10;
       border-radius: 10px;
@@ -157,60 +105,43 @@
       overflow: hidden;
       transition: transform 0.3s ease;
     }
-    .card:hover {
+    .project-card:hover, .edu-card:hover {
       transform: scale(1.02);
     }
-    .card img {
+    .project-image, .edu-img {
       width: 140px;
       height: 140px;
       object-fit: cover;
     }
-    .card-content {
+    .project-content, .edu-content {
       padding: 1rem;
       flex: 1;
     }
-    .card-content h3 {
+    .project-content h3, .edu-content h3 {
       font-size: 1.2rem;
       color: #4fc3f7;
       margin-bottom: 0.3rem;
     }
-    .card-content p {
+    .project-content p, .edu-content p {
       color: #ddd;
       margin: 0.2rem 0;
     }
-    .card ul {
+    .project-details ul, .edu-content ul {
+      padding-left: 1rem;
       margin-top: 0.5rem;
-      padding-left: 1.2rem;
     }
-    .card ul li {
-      color: #ccc;
-      margin-bottom: 0.4rem;
-    }
-    .edu-status .year {
+    .year {
       color: #ffd54f;
       font-weight: bold;
     }
-    .pursuing { color: #00e676; font-weight: bold; }
-    .completed { color: #81c784; font-weight: bold; }
-
-    @media (max-width: 600px) {
-      .card {
-        flex-direction: column;
-        align-items: center;
-      }
-      .card img {
-        width: 100%;
-        height: 160px;
-      }
-      .card-content {
-        text-align: center;
-      }
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
+    .pursuing {
+      color: #00e676;
+      font-weight: bold;
     }
-
+    .completed {
+      color: #81c784;
+      font-weight: bold;
+    }
     footer {
       text-align: center;
       padding: 1.5rem;
@@ -219,145 +150,160 @@
       margin-top: 3rem;
       border-top: 1px solid #333;
     }
+    @media (max-width: 600px) {
+      .project-card, .edu-card {
+        flex-direction: column;
+        align-items: center;
+      }
+      .project-image, .edu-img {
+        width: 100%;
+        height: 160px;
+      }
+      .project-content, .edu-content {
+        text-align: center;
+      }
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+    }
   </style>
 </head>
 <body>
+  <header id="profile">
+    <img src="profile.jpg" alt="Pavankalyan Akasam" class="profile-pic" />
+    <h1>Pavankalyan Akasam</h1>
+    <p class="subtitle">Entry-Level Automation Test Engineer</p>
+    <div class="contact-info">
+      📧 <a href="mailto:apavanpkalyan@gmail.com">apavanpkalyan@gmail.com</a> |
+      📞 +91 8341653388 |
+      🔗 <a href="https://www.linkedin.com/in/pavankalyan-akasamm-1a5668216" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/AKASAMPAVANKALYAN" target="_blank">GitHub</a>
+    </div>
+    <a href="pavan test engineer.pdf" class="download-btn" download>📥 Download Resume</a>
+  </header>
 
-<nav>
-  <a href="#profile">Profile</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#education">Education</a>
-  <a href="#strengths">Strengths</a>
-  <a href="pavan test engineer.pdf" download>📄 Resume</a>
-</nav>
+  <section>
+    <h2>Profile Summary</h2>
+    <p>Detail-oriented Automation Tester with experience in automating web applications using Java, Selenium WebDriver, TestNG, and POM. Proficient in building reusable frameworks and executing test suites. Passionate about learning and delivering quality software.</p>
+  </section>
 
-<header id="profile">
-  <img src="profile.jpg" alt="Pavankalyan Akasam" class="profile-pic" />
-  <h1>Pavankalyan Akasam</h1>
-  <p class="subtitle">Entry-Level QA Engineer</p>
-  <div class="contact-info">
-    📧 <a href="mailto:apavanpkalyan@gmail.com">apavanpkalyan@gmail.com</a> |
-    📞 +91 8341653388 |
-    🔗 <a href="https://www.linkedin.com/in/pavankalyan-akasamm-1a5668216">LinkedIn</a> |
-    <a href="https://github.com/AKASAMPAVANKALYAN">GitHub</a>
-  </div>
-  <a href="pavan test engineer.pdf" class="download-btn" download>📥 Download Resume</a>
-</header>
-
-<section>
-  <h2>Profile Summary</h2>
-  <p>I am a detail-oriented QA Engineer based in Hyderabad with a strong background in both Manual and Automation Testing. I have hands-on experience in designing and executing functional, regression, smoke, and UI tests across various web applications. Proficient in building scalable automation frameworks using Java, Selenium WebDriver, TestNG, and Maven with Page Object Model (POM) architecture. Skilled in identifying defects, writing effective test cases. I am committed to delivering high-quality software through careful testing, continuous learning, and collaboration in agile teams.</p>
-</section>
-
-
-
-<section id="skills">
+  <section id="skills">
   <h2>Skills</h2>
 
-  <div class="skill-group">
-    <h3><i class="fas fa-vial"></i> Testing Skills</h3>
-    <div class="skills-grid">
-      <div class="skill-box"><i class="fas fa-check-circle"></i> Manual Testing</div>
-      <div class="skill-box"><i class="fas fa-code-branch"></i> SDLC/STLC</div>
-      <div class="skill-box"><i class="fas fa-tasks"></i> Functional Testing</div>
-      <div class="skill-box"><i class="fas fa-undo"></i> Regression Testing</div>
-      <div class="skill-box"><i class="fas fa-bolt"></i> Smoke Testing</div>
-      <div class="skill-box"><i class="fas fa-pen-nib"></i> Test Case Design</div>
-      <div class="skill-box"><i class="fas fa-bug"></i> Bug Life Cycle</div>
-      <div class="skill-box"><i class="fas fa-exclamation-circle"></i> Defect Reporting</div>
-    </div>
+  <h3 style="color:#90caf9; margin-top: 1.5rem;">Testing Skills</h3>
+  <div class="skills-grid">
+    <div class="skill-box"><i class="fas fa-vial"></i> Manual Testing</div>
+    <div class="skill-box"><i class="fas fa-stream"></i> SDLC/STLC</div>
+    <div class="skill-box"><i class="fas fa-check-double"></i> Functional Testing</div>
+    <div class="skill-box"><i class="fas fa-history"></i> Regression Testing</div>
+    <div class="skill-box"><i class="fas fa-fire"></i> Smoke Testing</div>
+    <div class="skill-box"><i class="fas fa-pencil-alt"></i> Test Case Design</div>
+    <div class="skill-box"><i class="fas fa-bug"></i> Defect Reporting</div>
+    <div class="skill-box"><i class="fas fa-exclamation-circle"></i> Bug Life Cycle</div>
+    <div class="skill-box"><i class="fas fa-magic"></i> Test Automation</div>
   </div>
 
-  <div class="skill-group">
-    <h3><i class="fas fa-tools"></i> Tools & Frameworks</h3>
-    <div class="skills-grid">
-      <div class="skill-box"><i class="fas fa-cogs"></i> Selenium WebDriver</div>
-      <div class="skill-box"><i class="fab fa-java"></i> TestNG</div>
-      <div class="skill-box"><i class="fas fa-project-diagram"></i> POM</div>
-      <div class="skill-box"><i class="fab fa-github"></i> GitHub</div>
-      <div class="skill-box"><i class="fas fa-clipboard-list"></i> JIRA</div>
-      <div class="skill-box"><i class="fas fa-code"></i> Eclipse</div>
-    </div>
+  <h3 style="color:#90caf9; margin-top: 1.5rem;">Tools & Frameworks</h3>
+  <div class="skills-grid">
+    <div class="skill-box"><i class="fas fa-cogs"></i> Selenium WebDriver</div>
+    <div class="skill-box"><i class="fas fa-tasks"></i> JIRA</div>
+    <div class="skill-box"><i class="fas fa-code"></i> Eclipse</div>
+    <div class="skill-box"><i class="fas fa-project-diagram"></i> TestNG</div>
+    <div class="skill-box"><i class="fas fa-layer-group"></i> POM</div>
+    <div class="skill-box"><i class="fab fa-github"></i> GitHub</div>
   </div>
 
-  <div class="skill-group">
-    <h3><i class="fas fa-terminal"></i> Programming & Database</h3>
-    <div class="skills-grid">
-      <div class="skill-box"><i class="fab fa-java"></i> Core Java</div>
-      <div class="skill-box"><i class="fas fa-database"></i> SQL</div>
-    </div>
+  <h3 style="color:#90caf9; margin-top: 1.5rem;">Programming & Database</h3>
+  <div class="skills-grid">
+    <div class="skill-box"><i class="fab fa-java"></i> Core Java</div>
+    <div class="skill-box"><i class="fas fa-database"></i> SQL</div>
   </div>
 </section>
 
-<section id="projects">
-  <h2>Projects</h2>
+  <section id="projects">
+    <h2>Projects</h2>
 
-  <div class="card">
-    <img src="automation_exercise_logo.jpg" alt="AutomationExercise">
-    <div class="card-content">
-      <h3>AutomationExercise E-Commerce</h3>
-      <p>End-to-end automated UI testing of core workflows: signup, login, product search, cart, and checkout.</p>
-      <ul>
-        <li>Tools: Java, Selenium, TestNG, Maven</li>
-        <li>Framework with WebDriverManager and ExtentReports</li>
-        <li>Used TestNG annotations for test execution flow</li>
-      </ul>
+    <div class="project-card">
+      <img src="automation_exercise_logo.jpg" class="project-image" alt="AutomationExercise Logo">
+      <div class="project-content">
+        <h3>AutomationExercise E-Commerce</h3>
+        <p><strong>Tools:</strong> Java, Selenium, TestNG, Maven, POM</p>
+        <ul>
+          <li>Automated workflows: signup, login, product search, cart and checkout</li>
+          <li>Built scalable POM-based framework with WebDriverManager</li>
+          <li>Screenshot capture on failure using TestNG listeners</li>
+          <li>Used ExtentReports for professional reporting</li>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <img src="obzervr_logo.jpg" alt="Obzervr">
-    <div class="card-content">
-      <h3>OBSERVR_POM</h3>
-      <p>Automated UI testing for obzervr.com with modular POM, data-driven from Excel using Apache POI.</p>
-      <ul>
-        <li>Tools: Selenium, TestNG, Maven, ExtentReports, POI</li>
-        <li>Used TestNG Listeners to capture screenshots on failure</li>
-        <li>Focus: home page, nav, interactive elements</li>
-      </ul>
+    <div class="project-card">
+      <img src="obzervr_logo.jpg" class="project-image" alt="Obzervr Logo">
+      <div class="project-content">
+        <h3>OBSERVR_POM</h3>
+        <p><strong>Duration:</strong> May 2025 – May 2025</p>
+        <p><strong>Tools:</strong> Selenium WebDriver, TestNG, Apache POI, Extent Reports, Java, Maven</p>
+        <ul>
+          <li>Automated UI testing of obzervr.com using a structured framework</li>
+          <li>Used Excel-based data-driven testing and TestNG Listeners for screenshots</li>
+          <li>Generated Extent Reports with logs, screenshots, and environment info</li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="education">
-  <h2>Education</h2>
+  <section id="education">
+    <h2>Education</h2>
 
-  <div class="card">
-    <img src="veltech.jpg" alt="Vel Tech">
-    <div class="card-content">
-      <h3>B.Tech – CSE</h3>
-      <p>Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology</p>
-      <p class="edu-status"><span class="year">2020–2024</span> | <span class="completed">Completed</span></p>
-      <p><strong>GPA:</strong> 7.9</p>
+    <div class="edu-card">
+      <img src="veltech.jpg" alt="Vel Tech" class="edu-img" />
+      <div class="edu-content">
+        <h3>Bachelor of Technology in Computer Science & Engineering</h3>
+        <p>Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology</p>
+        <p class="edu-status"><span class="year">2020–2024</span> | <span class="pursuing">Pursuing</span></p>
+      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <img src="narayana.jpg" alt="Narayana Junior College">
-    <div class="card-content">
-      <h3>Intermediate – MPC</h3>
-      <p>Narayana Junior College, Andhra Pradesh</p>
-      <p class="edu-status"><span class="year">2018–2020</span> | <span class="completed">Completed</span></p>
-      <p><strong>GPA:</strong> 8.46</p>
+    <div class="edu-card">
+      <img src="narayana.jpg" alt="Narayana Junior College" class="edu-img" />
+      <div class="edu-content">
+        <h3>Intermediate - MPC</h3>
+        <p>Narayana Junior College, Andhra Pradesh</p>
+        <p class="edu-status"><span class="year">2018–2020</span> | <span class="completed">Completed</span></p>
+      </div>
     </div>
-  </div>
 
-  
-</section>
+    <div class="edu-card">
+      <img src="holyangels.jpg" alt="Holy Angels" class="edu-img" />
+      <div class="edu-content">
+        <h3>Secondary School Certificate (SSC)</h3>
+        <p>Holy Angels EM High School, Andhra Pradesh</p>
+        <p class="edu-status"><span class="year">2017–2018</span> | <span class="completed">Completed</span></p>
+      </div>
+    </div>
+  </section>
 
-<section id="strengths">
-  <h2>Strengths</h2>
-  <ul>
-    <li>Quick Learner & Detail-Oriented</li>
-    <li>Strong Debugging and Analytical Skills</li>
-    <li>Excellent Communication & Teamwork</li>
-  </ul>
-</section>
+  <section id="strengths">
+    <h2>Strengths</h2>
+    <ul>
+      <li>Quick Learner & Detail-Oriented</li>
+      <li>Strong Debugging and Analytical Skills</li>
+      <li>Excellent Communication & Teamwork</li>
+    </ul>
+  </section>
 
-<footer>
-  &copy; 2025 Pavankalyan Akasam | Portfolio
-</footer>
+  <footer>
+    &copy; 2025 Pavankalyan Akasam | Designed with 💻 + ☕
+  </footer>
 
+  <script>
+    function toggleProject(id) {
+      const allDetails = document.querySelectorAll('.project-details');
+      allDetails.forEach(detail => {
+        detail.style.display = (detail.id === id && detail.style.display !== 'block') ? 'block' : 'none';
+      });
+    }
+  </script>
 </body>
 </html>
