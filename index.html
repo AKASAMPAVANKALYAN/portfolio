@@ -142,42 +142,75 @@
                 </div>
             </section>
 
-            <!-- About Section -->
+            
            <!-- About Section -->
+
 <section id="about" class="py-32 scroll-animate">
     <div class="glass-card p-8 md:p-12 lg:p-16">
         <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">About Me</h2>
         <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            <div class="w-48 h-48 md:w-60 md:h-60 flex-shrink-0">
-                <img src="https://via.placeholder.com/240x240/1a1a2e/e5e5e5?text=PK" 
-                    alt="PAVAN KALYAN AKASAM" class="rounded-full border-4 border-indigo-500 object-cover w-full h-full">
+            <div class="flex flex-col items-center">
+                <img src="profile.jpg" alt="Pavankalyan Akasam" 
+                    class="w-48 h-48 md:w-60 md:h-60 rounded-full border-4 border-indigo-500 object-cover mb-6 shadow-lg">
+                <a href="pavan test engineer.pdf" download
+                    class="download-btn btn-primary inline-block text-white font-bold py-3 px-8 rounded-full text-lg hover:scale-105 transition-transform">
+                    <i class="fas fa-download mr-2"></i> Download Resume
+                </a>
             </div>
             <div class="text-lg text-gray-300 space-y-4 text-center md:text-left">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold">Pavankalyan Akasam</h1>
+                    <p class="text-indigo-300 text-xl mb-4">Entry-Level QA Engineer</p>
+                </div>
                 <p>
-                    I'm a Computer Science graduate with a passion for quality assurance and software testing. 
-                    With expertise in both manual and automated testing methodologies, I ensure applications 
-                    meet the highest standards of quality and reliability.
+                    Motivated and detail-oriented engineering graduate seeking an entry-level position as a Quality Assurance Engineer/Test Engineer. 
+                    Equipped with practical knowledge in both manual and automated testing methodologies.
                 </p>
                 <p>
-                    My approach combines technical skills with analytical thinking to identify potential issues 
-                    before they impact users. I'm particularly interested in test automation and continuously 
-                    expanding my knowledge in this area.
+                    Committed to continuous learning and professional growth in software testing, with hands-on experience in Selenium, 
+                    Java, and TestNG frameworks. Passionate about delivering high-quality software solutions.
                 </p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-2 pt-4">
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-indigo-400 hover:text-indigo-300 text-2xl">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/yourusername" target="_blank" class="text-indigo-400 hover:text-indigo-300 text-2xl">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:apavanpkalyan@gmail.com" class="text-indigo-400 hover:text-indigo-300 text-2xl">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                <div class="contact-info grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope text-indigo-400 mr-3"></i>
+                        <a href="mailto:apavanpkalyan@gmail.com" class="hover:text-indigo-400 transition-colors">apavanpkalyan@gmail.com</a>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-phone text-indigo-400 mr-3"></i>
+                        <a href="tel:+918341653388" class="hover:text-indigo-400 transition-colors">+91 8341653388</a>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fab fa-linkedin text-indigo-400 mr-3"></i>
+                        <a href="https://www.linkedin.com/in/pavankalyan-akasamm-1a5668216" target="_blank" class="hover:text-indigo-400 transition-colors">LinkedIn Profile</a>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fab fa-github text-indigo-400 mr-3"></i>
+                        <a href="https://github.com/AKASAMPAVANKALYAN" target="_blank" class="hover:text-indigo-400 transition-colors">GitHub Profile</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+    .download-btn {
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(192, 38, 211, 0.35);
+    }
+    .download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(192, 38, 211, 0.45);
+    }
+    .profile-pic {
+        box-shadow: 0 4px 20px rgba(79, 70, 229, 0.3);
+    }
+    @media (max-width: 768px) {
+        .contact-info {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
 
 <!-- Education Section -->
 <section id="education" class="py-32 scroll-animate">
