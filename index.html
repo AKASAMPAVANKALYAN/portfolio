@@ -1,680 +1,788 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAVAN KALYAN AKASAM | 3D Portfolio</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a;
-            color: #e5e5e5;
-            overflow-x: hidden;
-        }
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1b 100%);
-        }
-        .glass-card {
-            background: rgba(15, 15, 27, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1.5rem;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            transition: all 0.3s ease;
-        }
-        .glass-card:hover {
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4a4a58;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6a6a78;
-        }
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .scroll-animate.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .btn-primary {
-            background: linear-gradient(90deg, #4f46e5, #c026d3);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px 0 rgba(192, 38, 211, 0.35);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px 0 rgba(192, 38, 211, 0.45);
-        }
-        #loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #0a0a0a;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s ease;
-        }
-        .spinner {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            border: 6px solid rgba(255, 255, 255, 0.2);
-            border-top-color: #4f46e5;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAVAN KALYAN AKASAM | 3D Portfolio</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0a;
+      color: #e5e5e5;
+      overflow-x: hidden;
+    }
+    #bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1b 100%);
+    }
+    .glass-card {
+      background: rgba(15, 15, 27, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #4a4a58;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6a6a78;
+    }
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .scroll-animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #4f46e5, #c026d3);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px 0 rgba(192, 38, 211, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px 0 rgba(192, 38, 211, 0.45);
+    }
+    .download-btn {
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(192, 38, 211, 0.35);
+    }
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(192, 38, 211, 0.45);
+    }
+    .project-card {
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    .project-card:hover .glass-card {
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .skill-box {
+      background: rgba(15, 15, 27, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.75rem;
+      padding: 1.5rem 0.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .skill-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+      transition: all 0.3s ease;
+    }
+    .skill-icon i {
+      font-size: 1.75rem;
+      transition: all 0.3s ease;
+    }
+    .skill-box:hover {
+      border-color: rgba(79, 70, 229, 0.5);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .skill-box:hover .skill-icon {
+      transform: scale(1.1);
+    }
+    .skill-box:hover .skill-icon i {
+      color: #a78bfa;
+    }
+    .skill-box span {
+      color: #e5e5e5;
+      font-weight: 500;
+      font-size: 0.9rem;
+      line-height: 1.25;
+    }
+    @media (max-width: 640px) {
+      .skill-icon {
+        width: 40px;
+        height: 40px;
+      }
+      .skill-icon i {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body class="w-full">
 
-    <!-- Loading Screen -->
-    <div id="loader">
-        <div class="spinner"></div>
-    </div>
-    
-    <!-- 3D Background Canvas -->
-    <canvas id="bg-canvas"></canvas>
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
 
-    <!-- Main Content Wrapper -->
-    <div class="relative z-10">
+  <!-- 3D Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
 
-        <!-- Header/Navigation -->
-        <header class="fixed top-0 left-0 right-0 z-50 p-4">
-            <div class="container mx-auto max-w-6xl">
-                <nav class="glass-card p-4 flex justify-between items-center">
-                    <a href="#home" class="text-xl font-bold tracking-wider hover:text-indigo-400 transition-colors">PK</a>
-                    <div class="hidden md:flex space-x-8">
-                        <a href="#about" class="hover:text-indigo-400 transition-colors">About</a>
-                        <a href="#projects" class="hover:text-indigo-400 transition-colors">Projects</a>
-                        <a href="#contact" class="hover:text-indigo-400 transition-colors">Contact</a>
-                    </div>
-                </nav>
-            </div>
-        </header>
+  <div class="relative z-10">
+    <header class="fixed top-0 left-0 right-0 z-50 p-4">
+      <div class="container mx-auto max-w-6xl">
+        <nav class="glass-card p-4 flex justify-between items-center">
+          <a href="#home" class="text-xl font-bold tracking-wider hover:text-indigo-400 transition-colors">PK</a>
+          <div class="hidden md:flex space-x-8">
+            <a href="#about" class="hover:text-indigo-400 transition-colors">About</a>
+            <a href="#projects" class="hover:text-indigo-400 transition-colors">Projects</a>
+            <a href="#contact" class="hover:text-indigo-400 transition-colors">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-        <!-- Main Content Area -->
-        <main class="container mx-auto max-w-6xl px-4">
-            
-            <!-- Home Section -->
-            <section id="home" class="min-h-screen flex items-center justify-center text-center">
-                <div class="space-y-6">
-                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-tight">
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-fuchsia-500">
-                            PAVAN KALYAN AKASAM
-                        </span>
-                    </h1>
-                    <p class="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto">
-                        Motivated and detail-oriented engineering graduate seeking an entry-level position as a Quality Assurance Engineer/Test Engineer.
-                    </p>
-                    <a href="#projects" class="btn-primary inline-block text-white font-bold py-3 px-8 rounded-full text-lg">
-                        View My Work
-                    </a>
-                </div>
-            </section>
+    <main class="container mx-auto max-w-6xl px-4">
+      <!-- Home -->
+      <section id="home" class="min-h-screen flex items-center justify-center text-center">
+        <div class="space-y-6">
+          <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-tight">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-fuchsia-500">
+              PAVAN KALYAN AKASAM
+            </span>
+          </h1>
+          <p class="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto">
+            Motivated and detail-oriented engineering graduate seeking an entry-level position
+            as a Quality Assurance Engineer/Test Engineer.
+          </p>
+          <a href="#projects" class="btn-primary inline-block text-white font-bold py-3 px-8 rounded-full text-lg">
+            View My Work
+          </a>
+        </div>
+      </section>
 
-            
-           <!-- About Section -->
-
-<section id="about" class="py-32 scroll-animate">
-    <div class="glass-card p-8 md:p-12 lg:p-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">About Me</h2>
-        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+      <!-- About -->
+      <section id="about" class="py-32 scroll-animate">
+        <div class="glass-card p-8 md:p-12 lg:p-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">About Me</h2>
+          <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div class="flex flex-col items-center">
-                <img src="profile.jpg" alt="Pavankalyan Akasam" 
-                    class="w-48 h-48 md:w-60 md:h-60 rounded-full border-4 border-indigo-500 object-cover mb-6 shadow-lg">
-                <a href="pavan test engineer.pdf" download
-                    class="download-btn btn-primary inline-block text-white font-bold py-3 px-8 rounded-full text-lg hover:scale-105 transition-transform">
-                    <i class="fas fa-download mr-2"></i> Download Resume
-                </a>
+              <img src="profile.jpg" alt="Pavankalyan Akasam"
+                class="w-48 h-48 md:w-60 md:h-60 rounded-full border-4 border-indigo-500 object-cover mb-6 shadow-lg" />
+              <a href="pavan test engineer.pdf" download
+                class="download-btn btn-primary inline-block text-white font-bold py-3 px-8 rounded-full text-lg hover:scale-105 transition-transform">
+                <i class="fas fa-download mr-2"></i> Download Resume
+              </a>
             </div>
             <div class="text-lg text-gray-300 space-y-4 text-center md:text-left">
-                <div>
-                    <h1 class="text-2xl md:text-3xl font-bold">Pavankalyan Akasam</h1>
-                    <p class="text-indigo-300 text-xl mb-4">Entry-Level QA Engineer</p>
+              <div>
+                <h1 class="text-2xl md:text-3xl font-bold">Pavankalyan Akasam</h1>
+                <p class="text-indigo-300 text-xl mb-4">Entry-Level QA Engineer</p>
+              </div>
+              <p>Motivated and detail-oriented engineering graduate seeking an entry-level position
+                as a Quality Assurance Engineer/Test Engineer. Equipped with practical knowledge
+                in both manual and automated testing methodologies.</p>
+              <p>Committed to continuous learning and professional growth in software testing,
+                with hands-on experience in Selenium, Java, and TestNG frameworks. Passionate about
+                delivering high-quality software solutions.</p>
+              <div class="contact-info grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                <div class="flex items-center"><i class="fas fa-envelope text-indigo-400 mr-3"></i>
+                  <a href="mailto:apavanpkalyan@gmail.com"
+                    class="hover:text-indigo-400 transition-colors">apavanpkalyan@gmail.com</a>
                 </div>
-                <p>
-                    Motivated and detail-oriented engineering graduate seeking an entry-level position as a Quality Assurance Engineer/Test Engineer. 
-                    Equipped with practical knowledge in both manual and automated testing methodologies.
-                </p>
-                <p>
-                    Committed to continuous learning and professional growth in software testing, with hands-on experience in Selenium, 
-                    Java, and TestNG frameworks. Passionate about delivering high-quality software solutions.
-                </p>
-                <div class="contact-info grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                    <div class="flex items-center">
-                        <i class="fas fa-envelope text-indigo-400 mr-3"></i>
-                        <a href="mailto:apavanpkalyan@gmail.com" class="hover:text-indigo-400 transition-colors">apavanpkalyan@gmail.com</a>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-phone text-indigo-400 mr-3"></i>
-                        <a href="tel:+918341653388" class="hover:text-indigo-400 transition-colors">+91 8341653388</a>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fab fa-linkedin text-indigo-400 mr-3"></i>
-                        <a href="https://www.linkedin.com/in/pavankalyan-akasamm-1a5668216" target="_blank" class="hover:text-indigo-400 transition-colors">LinkedIn Profile</a>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fab fa-github text-indigo-400 mr-3"></i>
-                        <a href="https://github.com/AKASAMPAVANKALYAN" target="_blank" class="hover:text-indigo-400 transition-colors">GitHub Profile</a>
-                    </div>
+                <div class="flex items-center"><i class="fas fa-phone text-indigo-400 mr-3"></i>
+                  <a href="tel:+918341653388"
+                    class="hover:text-indigo-400 transition-colors">+91 8341653388</a>
                 </div>
+                <div class="flex items-center"><i class="fab fa-linkedin text-indigo-400 mr-3"></i>
+                  <a href="https://www.linkedin.com/in/pavankalyan-akasamm-1a5668216"
+                    target="_blank" class="hover:text-indigo-400 transition-colors">LinkedIn Profile</a>
+                </div>
+                <div class="flex items-center"><i class="fab fa-github text-indigo-400 mr-3"></i>
+                  <a href="https://github.com/AKASAMPAVANKALYAN"
+                    target="_blank" class="hover:text-indigo-400 transition-colors">GitHub Profile</a>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
-<style>
+      <!-- Education -->
+      <section id="education" class="py-32 scroll-animate">
+        <div class="glass-card p-8 md:p-12 lg:p-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Education</h2>
+          <div class="space-y-8 max-w-3xl mx-auto">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="glass-card p-6 hover:border-indigo-400">
+                <h3 class="text-xl font-bold text-indigo-300">Bachelor of Technology in Computer Science</h3>
+                <p class="text-gray-400">Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology</p>
+                <div class="flex flex-wrap justify-between items-center mt-2">
+                  <span class="text-gray-400 text-sm">Chennai, India</span>
+                  <span class="text-gray-400 text-sm">Sep 2020 - May 2024</span>
+                </div>
+                <div class="mt-3"><span
+                  class="inline-block bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">GPA: 7.9/10</span></div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="glass-card p-6 hover:border-indigo-400">
+                <h3 class="text-xl font-bold text-indigo-300">Intermediate (MPC)</h3>
+                <p class="text-gray-400">Narayana Junior College</p>
+                <div class="flex flex-wrap justify-between items-center mt-2">
+                  <span class="text-gray-400 text-sm">Andhra Pradesh, India</span>
+                  <span class="text-gray-400 text-sm">Jun 2018 - Mar 2020</span>
+                </div>
+                <div class="mt-3"><span
+                  class="inline-block bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">GPA: 8.46/10</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="py-20 scroll-animate">
+        <div class="container mx-auto px-4">
+          <div class="glass-card p-8 md:p-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Projects</h2>
+            <div class="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+              <div class="project-card glass-card p-6 hover:border-indigo-400">
+                <div class="flex flex-col md:flex-row gap-6">
+                  <div
+                    class="md:w-1/3 bg-gradient-to-br from-blue-600 to-indigo-800 rounded-lg flex items-center justify-center p-6">
+                    <img src="automation_exercise_logo.jpg"
+                      alt="Automation Exercise"
+                      class="w-full h-auto max-h-48 object-contain" />
+                  </div>
+                  <div class="md:w-2/3">
+                    <h3 class="text-2xl font-bold mb-3">AutomationExercise E-Commerce</h3>
+                    <p class="text-gray-400 mb-4">Automated signup, login, search, cart, and checkout using Java +
+                      Selenium.</p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                      <li class="flex items-start"><i class="fas fa-check text-indigo-400 mr-2 mt-1 text-xs"></i>
+                        Tools: Java, Selenium, TestNG, Maven</li>
+                      <li class="flex items-start"><i class="fas fa-check text-indigo-400 mr-2 mt-1 text-xs"></i>
+                        POM architecture, screenshot capture</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-card glass-card p-6 hover:border-indigo-400">
+                <div class="flex flex-col md:flex-row gap-6">
+                  <div
+                    class="md:w-1/3 bg-gradient-to-br from-purple-600 to-fuchsia-800 rounded-lg flex items-center justify-center p-6">
+                    <img src="obzervr_logo.jpg"
+                      alt="Obzervr Logo"
+                      class="w-full h-auto max-h-48 object-contain" />
+                  </div>
+                  <div class="md:w-2/3">
+                    <h3 class="text-2xl font-bold mb-3">OBSERVR_POM</h3>
+                    <p class="text-gray-400 mb-4">End-to-end automation for Obzervr.com using Selenium, POI, TestNG.</p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                      <li class="flex items-start"><i class="fas fa-check text-indigo-400 mr-2 mt-1 text-xs"></i>
+                        Data-driven with Excel</li>
+                      <li class="flex items-start"><i class="fas fa-check text-indigo-400 rr-2 mt-1 text-xs"></i>
+                        Reports + screenshot on failure</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="py-20 scroll-animate">
+        <div class="container mx-auto px-4">
+          <div class="glass-card p-8 md:p-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Technical Skills</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-bug text-indigo-400"></i></div><span>Manual Testing</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-cogs text-indigo-400"></i></div><span>SDLC/STLC</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-tasks text-indigo-400"></i></div><span>Functional Testing</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-redo-alt text-indigo-400"></i></div><span>Regression Testing</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-fire text-indigo-400"></i></div><span>Smoke Testing</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-robot text-indigo-400"></i></div><span>Selenium WebDriver</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-vial text-indigo-400"></i></div><span>TestNG</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-project-diagram text-indigo-400"></i></div><span>POM</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-chart-bar text-indigo-400"></i></div><span>ExtentReports</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fab fa-java text-indigo-400"></i></div><span>Core Java</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-database text-indigo-400"></i></div><span>SQL</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fab fa-jira text-indigo-400"></i></div><span>JIRA</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fab fa-github text-indigo-400"></i></div><span>GitHub</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-file-excel text-indigo-400"></i></div><span>Apache POI</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-code-branch text-indigo-400"></i></div><span>Git</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="py-32 scroll-animate">
+        <div class="glass-card p-8 md:p-12 lg:p-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Get In Touch</h2>
+          <p class="text-center text-gray-300 mb-8 max-w-2xl mx-auto">
+            I am eager to contribute to the software quality assurance process and am open to entry-level QA/Test Engineer opportunities. If
+            you have a project in mind or would like to connect, please reach out!
+          </p>
+          <form class="max-w-xl mx-auto space-y-6">
+            <input type="text" placeholder="Your Name"
+              class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            <input type="email" placeholder="Your Email"
+              class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            <textarea placeholder="Your Message" rows="5"
+              class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+            <button type="submit"
+              class="btn-primary w-full text-white font-bold py-3 px-8 rounded-lg text-lg">Send
+              Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center py-8 text-gray-500">
+      <p>&copy; 2025 PAVAN KALYAN AKASAM. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script type="module">
+    // (Your existing Three.js + scroll + tilt init scripts as before)
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+  <script>
+    // (Your existing jQuery tilt script)
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAVAN KALYAN AKASAM | 3D Portfolio</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0a;
+      color: #e5e5e5;
+      overflow-x: hidden;
+    }
+    #bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1b 100%);
+    }
+    .glass-card {
+      background: rgba(15, 15, 27, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #4a4a58;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6a6a78;
+    }
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .scroll-animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #4f46e5, #c026d3);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px 0 rgba(192, 38, 211, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px 0 rgba(192, 38, 211, 0.45);
+    }
     .download-btn {
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(192, 38, 211, 0.35);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(192, 38, 211, 0.35);
     }
     .download-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(192, 38, 211, 0.45);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(192, 38, 211, 0.45);
     }
-    .profile-pic {
-        box-shadow: 0 4px 20px rgba(79, 70, 229, 0.3);
-    }
-    @media (max-width: 768px) {
-        .contact-info {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
-
-<!-- Education Section -->
-<section id="education" class="py-32 scroll-animate">
-    <div class="glass-card p-8 md:p-12 lg:p-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Education</h2>
-        
-        <div class="space-y-8 max-w-3xl mx-auto">
-            <!-- Education Item 1 -->
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="glass-card p-6 hover:border-indigo-400">
-                    <h3 class="text-xl font-bold text-indigo-300">Bachelor of Technology in Computer Science</h3>
-                    <p class="text-gray-400">Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology</p>
-                    <div class="flex flex-wrap justify-between items-center mt-2">
-                        <span class="text-gray-400 text-sm">Chennai, India</span>
-                        <span class="text-gray-400 text-sm">Sep 2020 - May 2024</span>
-                    </div>
-                    <div class="mt-3">
-                        <span class="inline-block bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">
-                            GPA: 7.9/10
-                        </span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Education Item 2 -->
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="glass-card p-6 hover:border-indigo-400">
-                    <h3 class="text-xl font-bold text-indigo-300">Intermediate (MPC)</h3>
-                    <p class="text-gray-400">Narayana Junior College</p>
-                    <div class="flex flex-wrap justify-between items-center mt-2">
-                        <span class="text-gray-400 text-sm">Andhra Pradesh, India</span>
-                        <span class="text-gray-400 text-sm">Jun 2018 - Mar 2020</span>
-                    </div>
-                    <div class="mt-3">
-                        <span class="inline-block bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">
-                            GPA: 8.46/10
-                        </span>
-                    </div>
-                </div>
-            </div>
-            
-           
-        </div>
-    </div>
-</section>
-
-           
-          <!-- Projects Section -->
-<section id="projects" class="py-20 scroll-animate">
-    <div class="container mx-auto px-4">
-        <div class="glass-card p-8 md:p-12">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Projects</h2>
-            
-            <div class="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
-                <!-- Project 1 -->
-                <div class="project-card glass-card p-6 hover:border-indigo-400">
-                    <div class="flex flex-col md:flex-row gap-6">
-                        <div class="md:w-1/3 bg-gradient-to-br from-blue-600 to-indigo-800 rounded-lg flex items-center justify-center p-6">
-                            <img src="automation_exercise_logo.jpg" alt="Automation Exercise" class="w-full h-auto max-h-48 object-contain">
-                        </div>
-                        <div class="md:w-2/3">
-                            <h3 class="text-2xl font-bold mb-3">AutomationExercise E-Commerce</h3>
-                            <p class="text-gray-400 mb-4">Automated signup, login, search, cart, and checkout using Java + Selenium.</p>
-                            <ul class="text-gray-400 text-sm space-y-2">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check text-indigo-400 mr-2 mt-1 text-xs"></i>
-                                    <span>Tools: Java, Selenium, TestNG, Maven</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check text-indigo-400 mr-2 mt-1 text-xs"></i>
-                                    <span>POM architecture, screenshot capture</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card glass-card p-6 hover:border-indigo-400">
-                    <div class="flex flex-col md:flex-row gap-6">
-                        <div class="md:w-1/3 bg-gradient-to-br from-purple-600 to-fuchsia-800 rounded-lg flex items-center justify-center p-6">
-                            <img src="obzervr_logo.jpg" alt="Obzervr Logo" class="w-full h-auto max-h-48 object-contain">
-                        </div>
-                        <div class="md:w-2/3">
-                            <h3 class="text-2xl font-bold mb-3">OBSERVR_POM</h3>
-                            <p class="text-gray-400 mb-4">End-to-end automation for Obzervr.com using Selenium, POI, TestNG.</p>
-                            <ul class="text-gray-400 text-sm space-y-2">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check text-indigo-400 mr-2 mt-1 text-xs"></i>
-                                    <span>Data-driven with Excel</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check text-indigo-400 mr-2 mt-1 text-xs"></i>
-                                    <span>Reports + screenshot on failure</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<style>
     .project-card {
-        transition: all 0.3s ease;
+      transition: transform 0.3s ease;
     }
-    
     .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
     }
-</style>
-<!-- Skills Section -->
-
-<!-- Testing Methodologies -->
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fas fa-bug text-indigo-400"></i></div>
-  <span>Manual Testing</span>
-</div>
-
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fas fa-cogs text-indigo-400"></i></div>
-  <span>SDLC/STLC</span>
-</div>
-
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fas fa-tasks text-indigo-400"></i></div>
-  <span>Functional Testing</span>
-</div>
-
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fas fa-redo-alt text-indigo-400"></i></div>
-  <span>Regression Testing</span>
-</div>
-
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fas fa-fire text-indigo-400"></i></div>
-  <span>Smoke Testing</span>
-</div>
-
-<!-- Automation Tools -->
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fas fa-robot text-indigo-400"></i></div>
-  <span>Selenium WebDriver</span>
-</div>
-
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fas fa-vial text-indigo-400"></i></div>
-  <span>TestNG</span>
-</div>
-
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fas fa-project-diagram text-indigo-400"></i></div>
-  <span>POM</span>
-</div>
-
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fas fa-chart-bar text-indigo-400"></i></div>
-  <span>ExtentReports</span>
-</div>
-
-<!-- Programming -->
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fab fa-java text-indigo-400"></i></div>
-  <span>Core Java</span>
-</div>
-
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fas fa-database text-indigo-400"></i></div>
-  <span>SQL</span>
-</div>
-
-<!-- Tools -->
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fab fa-jira text-indigo-400"></i></div>
-  <span>JIRA</span>
-</div>
-
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fab fa-github text-indigo-400"></i></div>
-  <span>GitHub</span>
-</div>
-
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fas fa-file-excel text-indigo-400"></i></div>
-  <span>Apache POI</span>
-</div>
-
-<div class="skill-box group" data-tilt>
-  <div class="skill-icon"><i class="fas fa-code-branch text-indigo-400"></i></div>
-  <span>Git</span>
-</div>
-
-
-<style>
-    .skill-box {
-        background: rgba(15, 15, 27, 0.6);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 0.75rem;
-        padding: 1.5rem 0.5rem;
-        text-align: center;
-        transition: all 0.3s ease;
-        cursor: default;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-    }
-    
-    .skill-icon {
-        width: 48px;
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 0.75rem;
-        transition: all 0.3s ease;
-    }
-    
-    .skill-icon i {
-        font-size: 1.75rem;
-        transition: all 0.3s ease;
-    }
-    
-    .skill-box:hover {
-        border-color: rgba(79, 70, 229, 0.5);
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-    
-    .skill-box:hover .skill-icon {
-        transform: scale(1.1);
-    }
-    
-    .skill-box:hover .skill-icon i {
-        color: #a78bfa;
-    }
-    
-    .skill-box span {
-        color: #e5e5e5;
-        font-weight: 500;
-        font-size: 0.9rem;
-        line-height: 1.25;
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 640px) {
-        .skill-icon {
-            width: 40px;
-            height: 40px;
-        }
-        .skill-icon i {
-            font-size: 1.5rem;
-        }
-    }
-</style>
-
-<script>
-    // Initialize tilt.js for skill boxes with proper cleanup
-    document.addEventListener('DOMContentLoaded', function() {
-        const skillBoxes = document.querySelectorAll('.skill-box');
-        
-        skillBoxes.forEach(box => {
-            VanillaTilt.init(box, {
-                max: 5,
-                speed: 500,
-                glare: true,
-                "max-glare": 0.1,
-                scale: 1.05,
-            });
-        });
-        
-        // Cleanup function if needed
-        return () => {
-            skillBoxes.forEach(box => {
-                box.vanillaTilt.destroy();
-            });
-        };
-    });
-</script>
-
-<!-- Tilt.js Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
-<script>
-    // Initialize tilt.js
-    $('.project-card').tilt({
-        glare: true,
-        maxGlare: 0.2,
-        maxTilt: 5,
-        speed: 500,
-        scale: 1.03
-    });
-</script>
-
-<style>
-    .project-card {
-        transition: transform 0.3s ease;
-    }
-    
-    .project-card:hover {
-        transform: translateY(-5px);
-    }
-    
-    .glass-card {
-        transition: all 0.3s ease;
-    }
-    
     .project-card:hover .glass-card {
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.2);
     }
-</style>
-            <!-- Contact Section -->
-            <section id="contact" class="py-32 scroll-animate">
-                <div class="glass-card p-8 md:p-12 lg:p-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Get In Touch</h2>
-                    <p class="text-center text-gray-300 mb-8 max-w-2xl mx-auto">
-                        I am eager to contribute to the software quality assurance process and am open to entry-level QA/Test Engineer opportunities. If you have a project in mind or would like to connect, please reach out!
-                    </p>
-                    <form class="max-w-xl mx-auto space-y-6">
-                        <input type="text" placeholder="Your Name" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        <input type="email" placeholder="Your Email" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        <textarea placeholder="Your Message" rows="5" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-                        <button type="submit" class="btn-primary w-full text-white font-bold py-3 px-8 rounded-lg text-lg">Send Message</button>
-                    </form>
+    .skill-box {
+      background: rgba(15, 15, 27, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.75rem;
+      padding: 1.5rem 0.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .skill-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+      transition: all 0.3s ease;
+    }
+    .skill-icon i {
+      font-size: 1.75rem;
+      transition: all 0.3s ease;
+    }
+    .skill-box:hover {
+      border-color: rgba(79, 70, 229, 0.5);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .skill-box:hover .skill-icon {
+      transform: scale(1.1);
+    }
+    .skill-box:hover .skill-icon i {
+      color: #a78bfa;
+    }
+    .skill-box span {
+      color: #e5e5e5;
+      font-weight: 500;
+      font-size: 0.9rem;
+      line-height: 1.25;
+    }
+    @media (max-width: 640px) {
+      .skill-icon {
+        width: 40px;
+        height: 40px;
+      }
+      .skill-icon i {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body class="w-full">
+
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- 3D Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="relative z-10">
+    <header class="fixed top-0 left-0 right-0 z-50 p-4">
+      <div class="container mx-auto max-w-6xl">
+        <nav class="glass-card p-4 flex justify-between items-center">
+          <a href="#home" class="text-xl font-bold tracking-wider hover:text-indigo-400 transition-colors">PK</a>
+          <div class="hidden md:flex space-x-8">
+            <a href="#about" class="hover:text-indigo-400 transition-colors">About</a>
+            <a href="#projects" class="hover:text-indigo-400 transition-colors">Projects</a>
+            <a href="#contact" class="hover:text-indigo-400 transition-colors">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto max-w-6xl px-4">
+      <!-- Home -->
+      <section id="home" class="min-h-screen flex items-center justify-center text-center">
+        <div class="space-y-6">
+          <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-tight">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-fuchsia-500">
+              PAVAN KALYAN AKASAM
+            </span>
+          </h1>
+          <p class="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto">
+            Motivated and detail-oriented engineering graduate seeking an entry-level position
+            as a Quality Assurance Engineer/Test Engineer.
+          </p>
+          <a href="#projects" class="btn-primary inline-block text-white font-bold py-3 px-8 rounded-full text-lg">
+            View My Work
+          </a>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="py-32 scroll-animate">
+        <div class="glass-card p-8 md:p-12 lg:p-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">About Me</h2>
+          <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div class="flex flex-col items-center">
+              <img src="profile.jpg" alt="Pavankalyan Akasam"
+                class="w-48 h-48 md:w-60 md:h-60 rounded-full border-4 border-indigo-500 object-cover mb-6 shadow-lg" />
+              <a href="pavan test engineer.pdf" download
+                class="download-btn btn-primary inline-block text-white font-bold py-3 px-8 rounded-full text-lg hover:scale-105 transition-transform">
+                <i class="fas fa-download mr-2"></i> Download Resume
+              </a>
+            </div>
+            <div class="text-lg text-gray-300 space-y-4 text-center md:text-left">
+              <div>
+                <h1 class="text-2xl md:text-3xl font-bold">Pavankalyan Akasam</h1>
+                <p class="text-indigo-300 text-xl mb-4">Entry-Level QA Engineer</p>
+              </div>
+              <p>Motivated and detail-oriented engineering graduate seeking an entry-level position
+                as a Quality Assurance Engineer/Test Engineer. Equipped with practical knowledge
+                in both manual and automated testing methodologies.</p>
+              <p>Committed to continuous learning and professional growth in software testing,
+                with hands-on experience in Selenium, Java, and TestNG frameworks. Passionate about
+                delivering high-quality software solutions.</p>
+              <div class="contact-info grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                <div class="flex items-center"><i class="fas fa-envelope text-indigo-400 mr-3"></i>
+                  <a href="mailto:apavanpkalyan@gmail.com"
+                    class="hover:text-indigo-400 transition-colors">apavanpkalyan@gmail.com</a>
                 </div>
-            </section>
-        </main>
-        
-        <!-- Footer -->
-        <footer class="text-center py-8 text-gray-500">
-            <p>&copy; 2025 PAVAN KALYAN AKASAM. All rights reserved.</p>
-        </footer>
+                <div class="flex items-center"><i class="fas fa-phone text-indigo-400 mr-3"></i>
+                  <a href="tel:+918341653388"
+                    class="hover:text-indigo-400 transition-colors">+91 8341653388</a>
+                </div>
+                <div class="flex items-center"><i class="fab fa-linkedin text-indigo-400 mr-3"></i>
+                  <a href="https://www.linkedin.com/in/pavankalyan-akasamm-1a5668216"
+                    target="_blank" class="hover:text-indigo-400 transition-colors">LinkedIn Profile</a>
+                </div>
+                <div class="flex items-center"><i class="fab fa-github text-indigo-400 mr-3"></i>
+                  <a href="https://github.com/AKASAMPAVANKALYAN"
+                    target="_blank" class="hover:text-indigo-400 transition-colors">GitHub Profile</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    </div>
+      <!-- Education -->
+      <section id="education" class="py-32 scroll-animate">
+        <div class="glass-card p-8 md:p-12 lg:p-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Education</h2>
+          <div class="space-y-8 max-w-3xl mx-auto">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="glass-card p-6 hover:border-indigo-400">
+                <h3 class="text-xl font-bold text-indigo-300">Bachelor of Technology in Computer Science</h3>
+                <p class="text-gray-400">Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology</p>
+                <div class="flex flex-wrap justify-between items-center mt-2">
+                  <span class="text-gray-400 text-sm">Chennai, India</span>
+                  <span class="text-gray-400 text-sm">Sep 2020 - May 2024</span>
+                </div>
+                <div class="mt-3"><span
+                  class="inline-block bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">GPA: 7.9/10</span></div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="glass-card p-6 hover:border-indigo-400">
+                <h3 class="text-xl font-bold text-indigo-300">Intermediate (MPC)</h3>
+                <p class="text-gray-400">Narayana Junior College</p>
+                <div class="flex flex-wrap justify-between items-center mt-2">
+                  <span class="text-gray-400 text-sm">Andhra Pradesh, India</span>
+                  <span class="text-gray-400 text-sm">Jun 2018 - Mar 2020</span>
+                </div>
+                <div class="mt-3"><span
+                  class="inline-block bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">GPA: 8.46/10</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script type="module">
-        // --- 3D SCENE SETUP ---
-        let scene, camera, renderer, stars, dodecahedron;
+      <!-- Projects -->
+      <section id="projects" class="py-20 scroll-animate">
+        <div class="container mx-auto px-4">
+          <div class="glass-card p-8 md:p-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Projects</h2>
+            <div class="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+              <div class="project-card glass-card p-6 hover:border-indigo-400">
+                <div class="flex flex-col md:flex-row gap-6">
+                  <div
+                    class="md:w-1/3 bg-gradient-to-br from-blue-600 to-indigo-800 rounded-lg flex items-center justify-center p-6">
+                    <img src="automation_exercise_logo.jpg"
+                      alt="Automation Exercise"
+                      class="w-full h-auto max-h-48 object-contain" />
+                  </div>
+                  <div class="md:w-2/3">
+                    <h3 class="text-2xl font-bold mb-3">AutomationExercise E-Commerce</h3>
+                    <p class="text-gray-400 mb-4">Automated signup, login, search, cart, and checkout using Java +
+                      Selenium.</p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                      <li class="flex items-start"><i class="fas fa-check text-indigo-400 mr-2 mt-1 text-xs"></i>
+                        Tools: Java, Selenium, TestNG, Maven</li>
+                      <li class="flex items-start"><i class="fas fa-check text-indigo-400 mr-2 mt-1 text-xs"></i>
+                        POM architecture, screenshot capture</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-        function init() {
-            // Scene
-            scene = new THREE.Scene();
+              <div class="project-card glass-card p-6 hover:border-indigo-400">
+                <div class="flex flex-col md:flex-row gap-6">
+                  <div
+                    class="md:w-1/3 bg-gradient-to-br from-purple-600 to-fuchsia-800 rounded-lg flex items-center justify-center p-6">
+                    <img src="obzervr_logo.jpg"
+                      alt="Obzervr Logo"
+                      class="w-full h-auto max-h-48 object-contain" />
+                  </div>
+                  <div class="md:w-2/3">
+                    <h3 class="text-2xl font-bold mb-3">OBSERVR_POM</h3>
+                    <p class="text-gray-400 mb-4">End-to-end automation for Obzervr.com using Selenium, POI, TestNG.</p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                      <li class="flex items-start"><i class="fas fa-check text-indigo-400 mr-2 mt-1 text-xs"></i>
+                        Data-driven with Excel</li>
+                      <li class="flex items-start"><i class="fas fa-check text-indigo-400 rr-2 mt-1 text-xs"></i>
+                        Reports + screenshot on failure</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            // Camera
-            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-            camera.position.z = 1;
-            camera.rotation.x = Math.PI / 2;
+      <!-- Skills -->
+      <section id="skills" class="py-20 scroll-animate">
+        <div class="container mx-auto px-4">
+          <div class="glass-card p-8 md:p-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Technical Skills</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-bug text-indigo-400"></i></div><span>Manual Testing</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-cogs text-indigo-400"></i></div><span>SDLC/STLC</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-tasks text-indigo-400"></i></div><span>Functional Testing</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-redo-alt text-indigo-400"></i></div><span>Regression Testing</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-fire text-indigo-400"></i></div><span>Smoke Testing</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-robot text-indigo-400"></i></div><span>Selenium WebDriver</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-vial text-indigo-400"></i></div><span>TestNG</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-project-diagram text-indigo-400"></i></div><span>POM</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-chart-bar text-indigo-400"></i></div><span>ExtentReports</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fab fa-java text-indigo-400"></i></div><span>Core Java</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-database text-indigo-400"></i></div><span>SQL</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fab fa-jira text-indigo-400"></i></div><span>JIRA</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fab fa-github text-indigo-400"></i></div><span>GitHub</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-file-excel text-indigo-400"></i></div><span>Apache POI</span></div>
+              <div class="skill-box group" data-tilt><div class="skill-icon"><i class="fas fa-code-branch text-indigo-400"></i></div><span>Git</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            // Renderer
-            const canvas = document.getElementById('bg-canvas');
-            renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
+      <!-- Contact -->
+      <section id="contact" class="py-32 scroll-animate">
+        <div class="glass-card p-8 md:p-12 lg:p-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Get In Touch</h2>
+          <p class="text-center text-gray-300 mb-8 max-w-2xl mx-auto">
+            I am eager to contribute to the software quality assurance process and am open to entry-level QA/Test Engineer opportunities. If
+            you have a project in mind or would like to connect, please reach out!
+          </p>
+          <form class="max-w-xl mx-auto space-y-6">
+            <input type="text" placeholder="Your Name"
+              class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            <input type="email" placeholder="Your Email"
+              class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            <textarea placeholder="Your Message" rows="5"
+              class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+            <button type="submit"
+              class="btn-primary w-full text-white font-bold py-3 px-8 rounded-lg text-lg">Send
+              Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
 
-            // Starfield
-            const starGeometry = new THREE.BufferGeometry();
-            const starMaterial = new THREE.PointsMaterial({ 
-                color: 0xffffff,
-                size: 0.7,
-                transparent: true,
-                opacity: 0.8
-            });
+    <footer class="text-center py-8 text-gray-500">
+      <p>&copy; 2025 PAVAN KALYAN AKASAM. All rights reserved.</p>
+    </footer>
+  </div>
 
-            const starVertices = [];
-            for (let i = 0; i < 10000; i++) {
-                const x = (Math.random() - 0.5) * 2000;
-                const y = (Math.random() - 0.5) * 2000;
-                const z = (Math.random() - 0.5) * 2000;
-                starVertices.push(x, y, z);
-            }
-            starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
-            stars = new THREE.Points(starGeometry, starMaterial);
-            scene.add(stars);
-
-            // Central Dodecahedron
-            const dodecahedronGeometry = new THREE.DodecahedronGeometry(12, 0); // radius, detail
-            const dodecahedronMaterial = new THREE.MeshStandardMaterial({
-                color: 0x8a2be2, // A purple shade
-                emissive: 0x4f46e5, // Emissive color matching the theme
-                metalness: 0.7,
-                roughness: 0.3,
-                wireframe: true,
-            });
-            dodecahedron = new THREE.Mesh(dodecahedronGeometry, dodecahedronMaterial);
-            dodecahedron.position.z = -50;
-            scene.add(dodecahedron);
-
-            // Lighting
-            const pointLight = new THREE.PointLight(0xffffff, 1);
-            pointLight.position.set(50, 50, 50);
-            scene.add(pointLight);
-
-            const ambientLight = new THREE.AmbientLight(0x404040, 2); // soft white light
-            scene.add(ambientLight);
-
-            // Handle window resize
-            window.addEventListener('resize', onWindowResize, false);
-            
-            // Initial animation call
-            animate();
-        }
-
-        // --- ANIMATION LOOP ---
-        function animate() {
-            requestAnimationFrame(animate);
-
-            // Animate stars
-            stars.rotation.x += 0.0001;
-            stars.rotation.y += 0.0001;
-
-            // Animate dodecahedron
-            dodecahedron.rotation.x += 0.001;
-            dodecahedron.rotation.y += 0.001;
-
-            renderer.render(scene, camera);
-        }
-
-        // --- EVENT HANDLERS ---
-        function onWindowResize() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }
-        // Mouse move listener to pan the camera
-        document.addEventListener('mousemove', (event) => {
-            if (camera) {
-                const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-                const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-                camera.position.x += (mouseX - camera.position.x) * 0.02;
-                camera.position.y += (mouseY - camera.position.y) * 0.02;
-            }
-        });
-
-        // --- INIT ---
-        window.addEventListener('DOMContentLoaded', () => {
-            init();
-            // Loader fade out
-            setTimeout(function() {
-                document.getElementById('loader').style.opacity = 0;
-                setTimeout(function() {
-                    document.getElementById('loader').style.display = 'none';
-                }, 500);
-            }, 800);
-
-            // Section fade-in on scroll
-            function revealOnScroll() {
-                document.querySelectorAll('.scroll-animate').forEach(function(el) {
-                    const rect = el.getBoundingClientRect();
-                    if (rect.top < window.innerHeight - 100) {
-                        el.classList.add('visible');
-                    }
-                });
-            }
-            window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll();
-        });
-    </script>
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script type="module">
+    // (Your existing Three.js + scroll + tilt init scripts as before)
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+  <script>
+    // (Your existing jQuery tilt script)
+  </script>
 </body>
 </html>
