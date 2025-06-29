@@ -227,47 +227,92 @@
 </section>
 
             <!-- Projects Section -->
-            <section id="projects" class="py-32 scroll-animate">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">My Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <!-- Project Card 1 -->
-                    <div class="glass-card p-6 flex flex-col">
-                        <img src="obzervr_logo.jpg" 
-                             alt="OBSERVR_POM" class="rounded-lg mb-4 w-full h-48 object-cover">
-                        <h3 class="text-2xl font-bold mb-2">OBSERVR_POM</h3>
-                        <p class="text-gray-400 mb-2 text-sm">May 2025 – May 2025</p>
-                        
-                        <p class="text-gray-400 mb-4 flex-grow">
-                            Automated the end-to-end UI testing of the obzervr.com web application using a structured Selenium framework. The project focused on validating UI functionality across different sections of the site, including home page elements, navigation buttons, footer links, and interactive features. The framework followed a modular Page Object Model (POM) design, integrated with data-driven testing from Excel sheets, and included dynamic reporting and screenshot capture on test failure.
-                        </p>
-                        <ul class="list-disc pl-5 text-gray-400 text-sm mb-4">
-                            <li>Built a reusable and maintainable automation framework using Selenium WebDriver and TestNG.</li>
-                            <li>Implemented Page Object Model (POM) design pattern for cleaner code organization and easier test scalability.</li>
-                            <li>Used Apache POI to fetch test data from Excel for data-driven test scenarios.</li>
-                            </ul>
+            <!-- Projects Section -->
+<section id="projects" class="py-20 scroll-animate">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Projects</h2>
+        
+        <div class="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+            <!-- Project 1 -->
+            <div class="project-card" data-tilt>
+                <div class="glass-card p-0 overflow-hidden flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-gradient-to-br from-blue-600 to-indigo-800 flex items-center justify-center p-6">
+                        <img src="automation_exercise_logo.jpg" alt="Automation Exercise" class="w-full h-auto max-h-48 object-contain">
                     </div>
-
-                    <!-- Project Card 2 -->
-                    <div class="glass-card p-6 flex flex-col">
-                        <img src="automation_exercise_logo.jpg" 
-                             alt="AUTOMATIONEXERCISE_E-COMMERCE" class="rounded-lg mb-4 w-full h-48 object-cover">
-                        <h3 class="text-2xl font-bold mb-2">AUTOMATIONEXERCISE_E-COMMERCE</h3>
-                        <p class="text-gray-400 mb-2 text-sm">June 2025 – June 2025</p>
-                       
-                        <p class="text-gray-400 mb-4 flex-grow">
-                            Designed and implemented an end-to-end automation framework for the e-commerce website automationexercise.com using Selenium WebDriver and TestNG. The project follows the Page Object Model (POM) design pattern to ensure modularity, maintainability, and reusability of code. Maven was used for project and dependency management, and WebDriver Manager for seamless browser driver configuration.
-                        </p>
-                        <ul class="list-disc pl-5 text-gray-400 text-sm mb-4">
-                            <li>Automated user registration, product browsing, cart operations, checkout, and account deletion.</li>
-                            <li>Created a scalable and maintainable test structure using POM, separating page actions from test logic.</li>
-                            <li>Parameterized form input fields such as date of birth and card details to simulate real-world user data.</li>
-                            <li>Utilized TestNG for test execution control, lifecycle management, and result reporting.</li>
-                             </ul>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-2xl font-bold mb-3">AutomationExercise E-Commerce</h3>
+                        <p class="text-gray-400 mb-4">Automated signup, login, search, cart, and checkout using Java + Selenium.</p>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-indigo-400 mr-2">•</span>
+                                <span>Tools: Java, Selenium, TestNG, Maven</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-indigo-400 mr-2">•</span>
+                                <span>POM architecture, screenshot capture</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </section>
+            </div>
 
+            <!-- Project 2 -->
+            <div class="project-card" data-tilt>
+                <div class="glass-card p-0 overflow-hidden flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-gradient-to-br from-purple-600 to-fuchsia-800 flex items-center justify-center p-6">
+                        <img src="obzervr_logo.jpg" alt="Obzervr Logo" class="w-full h-auto max-h-48 object-contain">
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-2xl font-bold mb-3">OBSERVR_POM</h3>
+                        <p class="text-gray-400 mb-4">End-to-end automation for Obzervr.com using Selenium, POI, TestNG.</p>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-indigo-400 mr-2">•</span>
+                                <span>Data-driven with Excel</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-indigo-400 mr-2">•</span>
+                                <span>Listeners + screenshot on failure</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tilt.js Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+<script>
+    // Initialize tilt.js
+    $('.project-card').tilt({
+        glare: true,
+        maxGlare: 0.2,
+        maxTilt: 5,
+        speed: 500,
+        scale: 1.03
+    });
+</script>
+
+<style>
+    .project-card {
+        transition: transform 0.3s ease;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .glass-card {
+        transition: all 0.3s ease;
+    }
+    
+    .project-card:hover .glass-card {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+</style>
             <!-- Contact Section -->
             <section id="contact" class="py-32 scroll-animate">
                 <div class="glass-card p-8 md:p-12 lg:p-16">
